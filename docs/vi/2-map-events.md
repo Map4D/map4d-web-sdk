@@ -3,6 +3,9 @@ Hướng dẫn sử dụng các sự kiện của Map4D SDK.
 
 ## 1. Giới thiệu chung
 
+  > Chú ý: Nếu bạn đăng ký sự kiện trên map thì phải remove chúng khi không còn sử dụng để cải thiện hiệu năng cho map.
+  Chi tiết hướng dẫn có ở phần 2.
+
   **1.1. cameraWillChange**
   - Được gọi khi một trong các thông số camera (tâm, góc nghiêng, góc quay, mức zoom) của map chuẩn bị thay đổi.
 
@@ -84,6 +87,20 @@ Hướng dẫn sử dụng các sự kiện của Map4D SDK.
   ---
 
 ## 2. Hướng dẫn chi tiết
+
+  **-Cách đăng ký event chung-**
+  ```javascript
+    let event = map.addListener("event_name", (args) => {
+    })
+  ```
+
+  **-Cách gỡ bỏ một event khi không sử dụng-**
+
+  ```javascript
+      event.remove()
+    })
+  ```
+
 
   **2.1. cameraWillChange**
   ```javascript
