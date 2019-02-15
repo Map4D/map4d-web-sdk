@@ -14,7 +14,7 @@ interface MarkerOptions {
     snippet?: string //mô tả ngắn gọn của marker
     windowAnchor?: IPoint //điểm neo của bảng thông tin marker (bảng thông tin này sẽ hiện khi click vào marker)
   }  
- 
+
   class Marker {
     constructor(options: MarkerOptions) //hàm tạo marker từ 1 MarkerOptions
     //setter
@@ -24,7 +24,7 @@ interface MarkerOptions {
     setAnchor(anchor: IPoint) //thay đổi giá trị neo
     setIcon(icon: Icon | string) //thay đổi icon
     setElevation(elevation: number) //thay đổi độ cao
-    setTitle(title: string): void //thay đổi tiêu đề 
+    setTitle(title: string): void //thay đổi tiêu đề
     setSnippet(snippet: string): void //thay đổi mô tả
     setWindowAnchor(anchor: IPoint): void //thay đổi điểm neo của bảng thông tin marker
     //getter
@@ -40,11 +40,11 @@ interface MarkerOptions {
     hideInfoWindow(): void //ẩn bảng thông tin marker
     showInfoWindow(): void //hiện bảng thông tin marker
   }
-  
+
   class Icon {
     constructor(width: number, height: number, url: string) //tạo icon với các thông số
     clone(): Icon //tạo bản sao 1 icon
-    getWidth(): number 
+    getWidth(): number
     getHeight(): number
     getUrl(): string
   }
@@ -55,7 +55,7 @@ interface MarkerOptions {
     - Để hỗ trợ hiển thị marker trên nhiều màn hình 1x (màn hình thông thường), 2x (màn hình Apple rentina, hoặc các màn hình độ phân giải cao 2k, 4k) bạn phải chuẩn bị 3 ảnh 1x, 2x, 3x (thêm hậu tố @1x, @2x, @3x) và khi gán giá trị cho url cho icon thì truyền vào đường dẫn icon 1x (http://yourwebsite.com/path/image-marker@1x.png). SDK sẽ tự động hiển thị ảnh phù hợp với màn hình đang hiển thị.
     - Nếu đường dẫn hình ảnh truyền vào không có hậu tố @1x thì hình ảnh sẽ được tự động scale để hiển thị phù hợp.
 
-## 2. Tạo marker 
+## 2. Tạo marker
 
 ```javascript
 //tạo đối tượng marker từ MarkerOption
@@ -80,13 +80,27 @@ let clickMapsEventClick = this.map.addListener("markerClick", (args) => {
       console.log("Marker clicked: ")
       console.log(args)
     })
-    
+
     //sau khi dùng xong
     clickMapsEventClick.remove();
 ```
 
-## 4. Tùy chọn hiển thị thông tin marker
-Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor) 
+## 4. Sự kiện hover marker
+
+Phát sinh khi người dùng hover vào marker
+
+```javascript
+  let clickMapsEventClick = this.map.addListener("markerHover", (arg) => {
+      console.log("Marker hover: ")
+      console.log(arg)
+    })
+
+    //sau khi dùng xong
+    clickMapsEventClick.remove();
+```
+
+## 5. Tùy chọn hiển thị thông tin marker
+Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
 
 - Tùy biến nội dung thông tin với layout mặc định
 ```javascript
