@@ -98,7 +98,6 @@ Hướng dẫn sử dụng các sự kiện của Map4D SDK.
 
   ```javascript
       event.remove()
-    })
   ```
 
 

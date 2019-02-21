@@ -50,6 +50,17 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên map.
     polygon.setMap(this.map)
 ```
 
+  ***Chú ý:***
+  -  Điểm đầu điểm cuối danh sách các điểm cần vẽ phải giống nhau
+  -  Xem demo ở ví dụ trên
+  ```javascript
+      [ {lat: 10.773201, lng: 106.700147},
+        {lat: 10.771783, lng: 106.700763},
+        {lat: 10.772302, lng: 106.701901},
+        {lat: 10.773267, lng: 106.701493},
+        {lat: 10.773201, lng: 106.700147}]
+  ```
+
 ## 3. Sự kiện click polygon
 
 Phát sinh khi người dùng click vào polygon

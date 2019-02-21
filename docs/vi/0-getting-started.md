@@ -238,9 +238,9 @@ AnimationOption:
 
 ```javascript
   interface AnimationOptions {
-    duration?: number
-    easing?: (arg0: number) => number
-    animate?: boolean
+    duration?: number // thời gian chuyển động nếu có animation, đơn vị: miliseconds
+    easing?: (arg0: number) => number // phương trình chuyển động nếu người dùng truyền vào
+    animate?: boolean // có animation hay không nếu animate = false thì mặc định duration = 0
   }
 ```
 
@@ -270,18 +270,25 @@ IPoint  = Point | {lat: number, lng: number} | [number, number]
  map.setSwitchMode(map4d.SwitchMode.Auto)
  ```
 
-## 11. Cài đặt hiệu ứng thời tiết
-Map4D SDK cho phép người dùng cài đặt các hiệu ứng theo thời gian thực hoặc thủ công
-```javascript
-map.setWeather(Weather.Rain)
-getWeather(): Weather
-```
-- **setWeather**: Cài đặt hiệu ứng thời tiết
-  - *Weather.Rain* : Hiệu ứng thời tiết trời đang mưa
-  - *Weather.Snow* : Hiệu ứng thời tiết tuyết đang rơi
-  - *Weather.Sun*  : Hiệu ứng thời tiết trời nắng
+## 11. Cho phép ẩn hiện các đối tượng map.
+Map4D SDK cho phép người dùng có thể cài đặt ẩn hoặc hiện các đối tượng trên map
+Chú ý: Chỉ ẩn các đối tượng trên map, còn đối tượng người dùng tự thêm vào thì sẽ không ẩn.
 
-- **getWeather**: Trả về thông tin thời tiết hiện tại
+```javascript
+showMapObject(isShow: boolean): void
+isShowMapObject(): boolean
+```
+
+```javascript
+map.showMapObject(true)
+map.isShowMapObject()
+```
+
+- **showMapObject**: Cài đặt hiệu ứng thời tiết
+  - *true* : Hiện tất cả các đối tượng trên map.
+  - *false* : Ẩn tất cả các đối tượng trên map.
+
+- **isShowMapObject**: Trả về thông tin ẩn hiện các đối tượng trên map.
 
 License
 -------
