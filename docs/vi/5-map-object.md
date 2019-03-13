@@ -13,16 +13,11 @@ interface MapObjectOptions {
     bearing?: number // Góc quay của đối tượng
     elevation?: number // Độ cao so với mặt nước biển
     heightScale?: number // Tỉ lệ vẽ chiều cao của đối tượng
-    objName?: string // Tên đối tượng lấy trên map (sẽ được cung cấp)
-    objUrl?: string // Đường dẫn dữ liệu của đối tượng
-    objData?: string // Nội dung dữ liệu của đối tượng
-    textureUrl?: string // Đường texture của đối tượng
-    textureData?: string // Nội dung dữ liệu texture
-    textureName?: string // Tên của texture trên map (sẽ được cung cấp)
+    obj?: string // Tên đối tượng trên map(sẽ được cung cấp), đường dẫn hoặc nội dung dữ liệu đối tượng
+    texture?: string // Tên của texture trên map(sẽ được cung cấp), đường dẫn hoặc nội dung dữ liệu texture
   }
 
-  Chú ý: thứ tự ưu tiên cài đặt dữ liệu và texture cho đối tượng.
-  (Object hoặc Texture): URL->DATA->NAME.
+  Chú ý: Cài đặt tên, đường dẫn hoặc nội dung dữ liệu cho đối tượng hoặc texture.
   Chỉ cần cài đặt 1 trong 3 thuộc tính trên là được.
 
   class MapObject {
@@ -43,13 +38,12 @@ interface MapObjectOptions {
     getMaxZoom(): number // Lấy thông tin mức zoom tối
     getStartDate(): number // Lấy thông tin ngày bắt đầu xây dựng đối tượng
     getEndDate(): number // Lấy thông tin ngày kết thúc đối tượng (ngày phá bỏ ...), khi đó sẽ không xuất hiện trên bản đồ.
-    setObjUrl(url: string): void // Cài đặt đường dẫn lấy thông tin vẽ đối tượng
-    setTextureUrl(url: string): void // Cài đặt đường dẫn texture của đối tượng
-    setObjData(data: string): void // Cài đặt dữ liệu cho đối tượng
-    setTextureData(imageBase64: string): void // Cài đặt dữ liệu texture của đối tượng
-    setObjName(nameObj: string): void // Cài đặt tên đối tượng
-    setTextureName(textureName: string): void // Cài đặt tên cho texture.
-    setMap(map: Map): void // Cài đặt map cần vẽ đối tượng.
+    setObj(obj: string): void // Cài đặt tên đối tượng trên map(sẽ được cung cấp), đường dẫn hoặc nội dung dữ liệu đối tượng
+    setTexture(texture: string): void // Cài đặt tên của texture trên map(sẽ được cung cấp), đường dẫn hoặc nội dung dữ liệu texture
+    setLocation(location: ILatLng): void // Cài đặt vị trí đặt đối tượng lên map.
+    setElevation(Elevation: number): void // Cài đặt độ cao so với mặt nước biển
+    setBearing(bearing: number): void // Cài đặt góc quay của đối tượng
+    setName(name: string): void // Cài đặt tên của đối tượng
   }
 
 ```
