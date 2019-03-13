@@ -55,8 +55,8 @@ interface MapObjectOptions {
   let mapObject = new map4d.MapObject({
       id: "dungtest",
       location: {lat: 10.793113, lng:106.720739},
-      objName: "58a2b79436eace2398d47c01",
-      textureName: "CauKhanhHoi.png"
+      obj: "58a2b79436eace2398d47c01",
+      texture: "CauKhanhHoi.png"
     })
     // set Map
     this.mapObject.setMap(map)
