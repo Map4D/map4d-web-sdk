@@ -36,9 +36,11 @@ Lớp TileArea cho phép người dùng thực hiện thay thế các tile tại
       url: "http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
   }
   // Tạo TileArea
-  this.tileArea = new map4d.TileArea(tileAreaOption)
+  let tileArea = new map4d.TileArea(tileAreaOption)
   // Cài đặt map cần vẽ
-  this.tileArea.setMap(map)
+  tileArea.setMap(map)
+  // Xóa tile area
+  tileArea.setMap(null)
 ```
 
 License

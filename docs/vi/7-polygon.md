@@ -1,5 +1,5 @@
 # Polygon
-Lớp Polygon cho phép người dùng vẽ một Polygon lên map.
+Lớp Polygon cho phép người dùng vẽ một Polygon lên bản đồ.
 
 ## 1. Polygon & PolygoneOptions
 
@@ -23,6 +23,9 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên map.
     getFillColor(): string // Lấy thông tin màu sắc
     getFillOpacity(): number // Lấy thông tin độ trong suốt
     isVisible(): boolean // Kiểm tra polygon ẩn hiện
+
+	getUserData(): any // Lấy user data được gán cho polygon
+    setUserData(data: any) // Thêm user data cho polygon
   }
 ```
 
@@ -47,47 +50,50 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên map.
     }
   //thêm polygon vào map    
   let polygon = new map4d.Polygon(polygonOption)
-    polygon.setMap(this.map)
+  polygon.setMap(this.map)
+  //Xóa polygon khỏi map
+  polygon.setMap(null)
 ```
 
   ***Chú ý:***
-  -  Điểm đầu điểm cuối danh sách các điểm cần vẽ phải giống nhau
-  -  Xem demo ở ví dụ trên
-  ```javascript
-      [ {lat: 10.773201, lng: 106.700147},
+  - Paths là một mảng chứa các mảng với mảng đầu tiên là polygon cần vẽ lên bản đồ. Các mảng tiếp theo là lỗ trên polygon đó.
+  - Điểm đầu điểm cuối danh sách các điểm cần vẽ phải giống nhau
+  - Xem demo ở ví dụ trên
+```javascript
+[ {lat: 10.773201, lng: 106.700147},
         {lat: 10.771783, lng: 106.700763},
         {lat: 10.772302, lng: 106.701901},
         {lat: 10.773267, lng: 106.701493},
         {lat: 10.773201, lng: 106.700147}]
-  ```
+```
 
-## 3. Sự kiện click polygon
+## 3. Các sự kiện trên polygon
 
-Phát sinh khi người dùng click vào polygon
+Sự kiện click phát sinh khi người dùng click vào polygon
 
 ```javascript
-let clickMapsEventClick = this.map.addListener("polygonClick", (args) => {
-      console.log("polygon clicked: ")
+let clickEvent = this.map.addListener("click", (args) => {
+      console.log("Polygon clicked: ")
       console.log(args)
-    })
+    }, {polygon: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    clickEvent.remove();
 ```
 
-## 4. Sự kiện hover polygon
-
-Phát sinh khi người dùng hover vào polygon
+Sự kiện hover phát sinh khi người dùng rê chuột vào polygon
 
 ```javascript
-  let clickMapsEventClick = this.map.addListener("polygonHover", (arg) => {
-      console.log("Polygon hover: ")
+  let hoverEvent = this.map.addListener("hover", (arg) => {
+      console.log(Polygon hover: ")
       console.log(arg)
-    })
+    }, {polygon: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    hoverEvent.remove();
 ```
+
+Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
 License
 -------

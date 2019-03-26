@@ -1,74 +1,89 @@
 # Cài đặt Hiệu Ứng Map4D-SDK
 
-## 1. Cài đặt hiệu ứng thời tiết
-Map4D SDK cho phép người dùng cài đặt các hiệu ứng theo thời gian thực hoặc thủ công
+# 5. Các hiệu ứng 3D
 
-```javascript
-setWeather(weather: Weather): void
-getWeather(): Weather
-```
+## 5.1. Hiệu ứng đổ bóng
+Hiệu ứng đổ bóng sẽ vẽ thêm bóng của các đối tượng 3D, vị trí đổ bóng sẽ phụ thuộc vào vị trí của mặt trời. (Ví trị của mặt trời sẽ được dựa trên thời gian mà người dùng set trên map hoặc là lấy tự động)
 
-```javascript
-map.setWeather(Weather.Rain)
-this.map.getWeather()
-```
-- **setWeather**: Cài đặt hiệu ứng thời tiết
-  - *Weather.Rainy* : Hiệu ứng thời tiết trời đang mưa
-  - *Weather.Snowy* : Hiệu ứng thời tiết tuyết đang rơi
-  - *Weather.Sunny* : Hiệu ứng thời tiết trời nắng
-  - *Weather.Live*  : Hiệu ứng thời tiết tự động cập nhật theo thời gian thực bằng hệ thống cảm biến đã có ở một số nơi.
+Để bật/ tắt hiệu ứng đồ bóng
 
-- **getWeather**: Trả về thông tin thời tiết hiện tại
-
-
-## 2. Cài đặt hiệu ứng theo thời gian
-Map4D SDK cho phép người dùng cài đặt hiệu ứng trên map theo thời gian, hiện tại Map4D đã hỗ trợ hiệu ứng buổi sáng, trưa, chiều, tối và theo thời gian thực.
-```javascript
-setTimeEffect(timeEffect : TimeEffect): void
-getTimeEffect(): number
-```
-
-```javascript
-map.setTimeEffect(map4d.TimeEffect.Morning)
-map.getTimeEffect()
-```
-
-- **setTimeEffect**: Cài đặt hiệu ứng thời gian trên map
-  - *TimeEffect.Live* : Hiệu ứng theo thời gian thực.
-  - *TimeEffect.Morning* : Hiệu ứng thời gian buổi sáng
-  - *TimeEffect.Noon* : Hiệu ứng thời gian buổi trưa
-  - *TimeEffect.AfterNoon*  : Hiệu ứng thời gian buổi chiều
-  - *TimeEffect.Evening*  : Hiệu ứng thời gian buổi tối
-
-- **getTimeEffect**: Trả về thông tin thời gian hiện tại
-
-## 3. Cài đặt hiệu ứng bóng đổ
-Map4D SDK cho phép người dùng cài đặt hiệu ứng bóng đổ trên map.
 ```javascript
 setShadowEffect(enabled: boolean): void
 ```
 
-```javascript
-map.setShadowEffect(true)
-```
+Mặc định sẽ là tắt.
+## 5.2. Hiệu ứng mặt nước
+Hiệu ứng mặt nước sẽ tạo các gợn sóng lăn tăn tại những nơi là sông hoặc biển. 
 
-- **setShadowEffect**: Cài đặt hiệu ứng bóng đổ trên map
-  - *true* : Cho phép cài đặt hiệu ứng bóng đổ.
-  - *false* : Không cho phép cài đặt hiệu ứng bóng đổ.
+Để bật/ tắt hiệu ứng mặt nước
 
-## 4. Cài đặt hiệu ứng mặt nước
-Map4D SDK cho phép người dùng cài đặt hiệu ứng mặt nước trên map.
 ```javascript
 setWaterEffect(enabled: boolean): void
 ```
 
+Mặc định sẽ là tắt.
+
+## 5.3. Hiệu ứng phản chiếu mặt nước
+Chưa hỗ trợ
+
+## 5.4. Hiệu ứng thời gian trong ngày 
+Bạn có thể thay đổi thời gian trong ngày của bản đồ thành sáng, trưa, chiều, tối... Tùy thuộc thời gian trong ngày mà vị trí đổ bóng sẽ khác nhau và màu sắc của ánh sáng sẽ khác nhau.
+
 ```javascript
-map.setWaterEffect(true)
+enum TimeEffect {
+    Live,
+    Morning,
+    Noon,
+    Afternoon,
+    Evening,
+    None
+  }
 ```
 
-- **setWaterEffect**: Cài đặt hiệu ứng mặt nước trên map
-  - *true* : Cho phép cài đặt hiệu ứng mặt nước.
-  - *false* : Không cho phép cài đặt hiệu ứng mặt nước.
+```javascript
+  setTimeEffect(timeEffect : TimeEffect): void
+  setShadowEffect(enabled: boolean): void
+```
+
+- **TimeEffect**:
+	- **Live**: thời gian sẽ được lấy tự động
+	- **Morning**: thời gian sẽ là buổi sáng 6h sáng
+	- **Noon**: thời gian sẽ là buổi trưa 12h trưa
+	- **Afternoon**: thời gian sẽ là buổi chiều 4h chiều
+	- **Evening**: Thời gian sẽ là buổi tối 6h tối 
+	- **None**: Hiệu ứng thời gian không được kích hoạt
+
+## 5.5. Hiệu ứng thời tiết
+Map4D SDK cho phép người dùng cài đặt các hiệu ứng theo thời gian thực hoặc thủ công.
+```javascript
+enum Weather {
+    Rainy = 0,
+    Snowy,
+    Sunny,
+    Cloudy,
+    Live,
+    None
+  }
+
+setWeather(weather: Weather): void
+getWeather(): Weather
+```
+
+Ví dụ cài đặt thời tiết mưa cho bản đồ.
+
+```javascript
+map.setWeather(Weather.Rain)
+```
+
+- **setWeather**: Cài đặt hiệu ứng thời tiết
+  - *Weather.None* : Tắt hiệu ứng thời tiết
+  - *Weather.Rainy* : Hiệu ứng thời tiết trời đang mưa
+  - *Weather.Snowy* : Hiệu ứng thời tiết tuyết đang rơi
+  - *Weather.Sunny* : Hiệu ứng thời tiết trời nắng
+  - *Weather.Cloudy* : Hiệu ứng thời tiết trời có mây
+  - *Weather.Live*  : Hiệu ứng thời tiết tự động cập nhật theo thời gian thực bằng hệ thống cảm biến đã có ở một số nơi.
+
+> Các hiệu ứng thời tiết chỉ hoạt động khi ở mode 3D
 
 
 License

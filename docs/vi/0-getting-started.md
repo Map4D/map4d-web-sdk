@@ -37,10 +37,10 @@
         center: [10.793113, 106.720739],
         zoom: 17,
         geolocate: true,
-        mapControls :true,
+        controls :true,
         tilt: 0,
-        mapControlOptions: map4d.ControlOptions.BOTTOM_RIGHT,
-        accessKey: "98fd21346d83bee24dc734231f7609c9"
+        controlOptions: map4d.ControlOptions.BOTTOM_RIGHT,
+        accessKey: "${access_key}"
       }
     )
 </script>
@@ -65,20 +65,24 @@
   </style>
   ```
 
-## 3. Tùy chọn khi tạo map
+## 3. Access key
+Để sử dụng map4d JavaScript API, bạn cần phải có access key (bạn có thể sử dụng một access key cho các api trên web, iOS, Android).
+Để nhận được access key vui vòng truy cập đường link sau ([đăng ký key](http://map4d.vn))
+
+## 4. Tùy chọn khi tạo map
 
 ```javascript
 {
   center: ILatLng,
+  accessKey: string
   zoom?: number,
   tilt?: number,
   bearing?: number,
   minZoom?: number,
   maxZoom?: number,
   geolocate?: boolean,
-  accessKey?: string
-  mapControls?: boolean,
-  mapControlOptions?: ControlOptions
+  controls?: boolean,
+  controlOptions?: ControlOptions
 }
 
 enum ControlOptions {
@@ -91,78 +95,27 @@ enum ControlOptions {
 
 - center: vị trí khởi tạo trung tâm của map
 - zoom, tilt, bearing: mức zoom, độ nghiêng và góc xoay khởi tạo cho map
-- minZoom, maxZoom: giới hạn zoom của map (có thể thay đổi bằng hàm setMin/MaxZoom
-- geolocate: bật/tắt chức năng lấy vị trí hiện tại của người dùng, mặc định là bật
-- accessKey: key để sử dụng map ([đăng ký key](http://map4d.vn)
-- mapControls: ẩn hiện bảng điều khiển
-- mapControlOptions: vị trí của bảng điều khiển
+- minZoom, maxZoom: giới hạn zoom của map có nghĩa mức zoom của map chỉ được nằm trong khoảng [minZoom, maxZoom]. Nếu không set thì giá trị mặc định sẽ là [0, 22]
+- geolocate: bật/tắt chức năng lấy vị trí hiện tại của người dùng, mặc định là tắt
+- accessKey: key để sử dụng map ([đăng ký key](http://map4d.vn))
+- controls: ẩn hiện bảng điều khiển, mặc định là ẩn
+- controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
 
 
-## 4. Giới hạn mức zoom tối đa và tối thiểu
+## 5. Giới hạn mức zoom tối đa và tối thiểu
+Có thể set thông qua MapOptions khi khởi tạo map hoặc là phương thức setMinZoom/ setMapZoom
 ```javascript
   map.setMinZoom(7)
   map.setMaxZoom(18)
 ```
 
-## 5. Bật tắt chế độ 3D & 2D
-Cho phép tắt bật chế độ 2D và 3D
+## 6. Lấy các thông số của map.
 
 ```javascript
-  map.enable3dMode(true) //bật chế độ 3D
-  map.enable3dMode(false) //tắt chế độ 3D chuyển về 2D
-```
-
-## 6. Chế độ chuyển 2D và 3D
-Cho phép thay đổi chế độ chuyển 2D & 3D của map. Có 4 chế độ:
-
-```javascript
-enum SwitchMode {
-    Auto2DTo3D,
-    Auto3DTo2D,
-    Auto,
-    Manual,
-    Default
-  }
-```
-
-```javascript
-  map.setSwitchMode(map4d.SwitchMode.Auto)
-```
-
-- Auto3DTo2D:
-  - **Không** tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom > 17.
-  - Khi map đang ở mức zoom > 17, map ở chế độ 3D thì khi điều khiển zoom xuống zoom < 17, map sẽ tự động chuyển về chế độ 2D.
-- Auto2DTo3D:
-  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom > 17.
-  - Khi map đang ở mức zoom > 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.
-  - Khi map đang ở mức zoom > 17, nếu map đang chế độ 2D, thì map vẫn có thể zoom về mức zoom < 17.
-- Auto:
-  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
-  - Tự động chuyển từ chế độ 3D sang 2D khi điều khiển zoom từ mức zoom >= 17 về mức zoom < 17.
-- Manual:
-  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.  
-- Default:
-  - Chế độ mặc định là **Auto3DTo2D**
-
-**Chú ý: các chế độ này chỉ có tác dụng khi người dùng tương tác với map, không ảnh hưởng khi gọi hàm pan, fly hay setCamera**
-
-## 7. Thay đổi trạng thái và lấy các thông số của map.
-Cho phép thay đổi các trạng thái và lấy các thông số của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom hiện tại
-
-```javascript
-setCamera(camera: ICameraPosition): void
 getCamera(): CameraPosition
 
-ICameraPosition = CameraPosition | {target: ILatLng, tilt: number, bearing: number, zoom: number}
-
-ILatLng  = LatLng | {lat: number, lng: number} | [number, number]
 ```
-
-- setCamera:
-  - Cho phép thay đổi các thông số camera của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom.
-- getCamera:
-  - Cho phép lấy thông tin các thông số camera hiện tại của map.
-
+- getCamera: Cho phép lấy các thông số của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom hiện tại
 
 ```javascript
   getMapUrl(): string
@@ -170,39 +123,41 @@ ILatLng  = LatLng | {lat: number, lng: number} | [number, number]
 - getMapUrl: trả về thông tin url hiện tại của map.
 
 ```javascript
-  getBounds(): LatLngBounds
+  getBounds(paddingOptions?: PaddingOptions): LatLngBounds
 ```
-- getBounds: trả về thông tin lat lng bounds của map với các thông số camera hiện tại.
+- getBounds: trả về thông tin LatLngBounds của map với các thông số camera và màn hình hiện tại.
 
 ```javascript
-  is3DMode(): boolean
-```
-- is3DMode: trả về thông tin hiện tại map là 2D or 3D.
-  - false: 2D mode
-  - true:  3D mode
-
-```javascript
-  setMinZoom(minZoom: number): void
   getMinZoom(): number
 ```
-- setMinZoom: thiết lập mức zoom tối thiểu của map.
 - getMinZoom: trả về thông tin mức zoom tối thiểu của map.
 
 ```javascript
-  setMaxZoom(maxZoom: number): void
   getMaxZoom(): number
 ```
-- setMaxZoom: thiết lập mức zoom tối đa của map.
 - getMaxZoom: trả về thông tin mức zoom tối đa của map.
+
+
+```javascript
+  getWeather(): Weather
+```
+- getWeather: trả về thông tin hiệu ứng thời gian của map
+
+
+```javascript
+  is3dMode(): boolean
+```
+- is3dMode: Kiểm tra map đang ở chế độ 2D hay 3D. 
+
 
 ```javascript
   getPreferMinZoom(): number
 ```
-- getPreferMinZoom: trả về thông tin mức zoom tối thiểu theo trạng thái map(2D or 3D) và theo chế độ chuyển đổi (Auto2DTo3D, Auto3DTo2D, Auto, Manual)
+- getPreferMinZoom: trả về thông tin mức zoom tối thiểu theo trạng thái map(2D or 3D) và phụ thuộc vào **SwitchMode**
   - **Ví dụ**:
 
     - *Map đang ở chế độ Manual*:   
-    Nếu map đang ở 2D: trả về mức zoom tối thiếu khi đang ở chế độ 2D
+    Nếu map đang ở 2D: trả về mức zoom tối thiếu khi đang ở chế độ 2D 
     <br/>Nếu map đang ở 3D: trả về mức zoom tối thiểu khi đang ở chế độ 3D (Vì chế độ này không cho phép chuyển từ 3D xuống 2D) => [ minZoom >= 17 ]
 
     - *Map đang ở chế độ Auto*:
@@ -218,20 +173,17 @@ ILatLng  = LatLng | {lat: number, lng: number} | [number, number]
     <br/>Nếu map đang ở chế độ 3D: trả về mức zoom tối thiều khi đang ở chế độ 3D (Vì chế độ này không cho phép chuyển từ 3D xuống 2D) => [ minZoom >= 17 ]
 
   > Chú ý: Ở mức zoom >= 17 mới có chế độ 3D và tìm hiểu chi tiết về các chế độ ở phía trên
+  > Mức zoom tối thiểu khi đang ở chế độ 2D bằng với giá trị khi ta gọi hàm getZoom()
+  > Đọc thêm phần 3d objects để có thêm cái nhìn về các mode chuyển đổi
 
-## 8. Thay đổi thời gian của map
-Map 4D SDK cho phép người dùng thiết lập thời gian cho map, dữ liệu 3D và các địa điểm sẽ được lấy theo thời gian người dùng thiết lập, mặc định sẽ lấy thời gian hiện tại.
-
-```javascript
-map.setTime(new Date())
-```
-## 9. Di chuyển map
+## 7. Di chuyển map
 Cho phép di chuyển map đến một vị trí bất kỳ
 
 ```javascript
     panBy(offset: IPoint, animationOptions?: AnimationOptions): void
     panTo(destination: ILatLng, animationOptions?: AnimationOptions): void
-    flyTo(destination: ILatLng, zoom: number, animationOptions?: AnimationOptions): void
+	moveCamera(camera: ICameraPosition, animationOptions?: AnimationOptions): void
+	moveToMyLocation(animate: boolean): void
 ```
 
 AnimationOption:
@@ -245,8 +197,15 @@ AnimationOption:
 ```
 
 IPoint:
+
 ```javascript
 IPoint  = Point | {lat: number, lng: number} | [number, number]
+```
+
+ICameraPosition:
+
+```javascript
+ICameraPosition = CameraPosition | {target: ILatLng, tilt: number, bearing: number, zoom: number}
 ```
 
 - **panBy**: di chuyển map 1 khoảng x, y tính theo đơn vị point
@@ -255,12 +214,13 @@ IPoint  = Point | {lat: number, lng: number} | [number, number]
 - **panTo**: di chuyển map đến 1 vị trí (LatLng) bất kỳ
   - destination: LatLng | {lat: number, lng: number} | [number, number]
   - animationOptions: tùy chọn, mặc định là null. Cho phép tùy biến chuyển động.
-- **flyTo**: di chuyển map đến 1 vị trí (LatLng) bất kỳ
+- **moveCamera**: di chuyển map đến 1 vị trí (LatLng) bất kỳ
   - destination: LatLng | {lat: number, lng: number} | [number, number]
   - zoom: giá trị zoom sau khi di chuyển tới vị trí đích
   - animationOptions: tùy chọn, mặc định là null. Cho phép tùy biến chuyển động.  
+- **moveToMyLocation** di chuyển map tới vị trí hiện tại của người dùng (nếu geolocate được bật) 
 
- ## 10. Ghi chú
+ ## 8. Ghi chú
  Các kiểu dữ liệu **Point, LatLng, CameraPosition, SwitchMode, ControlOptions** là các kiểu dữ liệu của Map4D-SDK, muốn sử dụng được phải thông qua **module map4d**
  Ví dụ:
  ```javascript
@@ -269,26 +229,6 @@ IPoint  = Point | {lat: number, lng: number} | [number, number]
  let camera = new map4d.CameraPosition([10, 108], tilt, bearing, zoom)
  map.setSwitchMode(map4d.SwitchMode.Auto)
  ```
-
-## 11. Cho phép ẩn hiện các đối tượng map.
-Map4D SDK cho phép người dùng có thể cài đặt ẩn hoặc hiện các đối tượng trên map
-Chú ý: Chỉ ẩn các đối tượng trên map, còn đối tượng người dùng tự thêm vào thì sẽ không ẩn.
-
-```javascript
-showMapObject(isShow: boolean): void
-isShowMapObject(): boolean
-```
-
-```javascript
-map.showMapObject(true)
-map.isShowMapObject()
-```
-
-- **showMapObject**: Cài đặt hiệu ứng thời tiết
-  - *true* : Hiện tất cả các đối tượng trên map.
-  - *false* : Ẩn tất cả các đối tượng trên map.
-
-- **isShowMapObject**: Trả về thông tin ẩn hiện các đối tượng trên map.
 
 License
 -------

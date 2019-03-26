@@ -6,8 +6,8 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
 ```javascript
   interface CircleOptions {
     center: ILatLng // Tâm của Circle
-    radius?: number // Bán kính Circle (Đơn vị: m)
-    fillColor?: string // Màu sắc Circle
+    radius?: number // Bán kính Circle tính theo mét
+    fillColor?: string // Màu sắc Circle theo hex
     fillOpacity?: number // Độ trong suốt Circle
     visible?: boolean // Ẩn hoặc hiện Circle
   }
@@ -26,6 +26,9 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
     getFillColor(): string // Lấy thông tin màu sắc Circle
     getFillOpacity(): number // Lấy thông tin độ trong suốt Circle
     isVisible(): boolean // Kiểm tra ẩn hiện Circle
+
+	getUserData(): any // Lấy user data được gán cho polygon
+    setUserData(data: any) // Thêm user data cho polygon
   }
 ```
 
@@ -38,35 +41,37 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
 
   //thêm circle vào map    
   circle.setMap(this.map)
+  //xóa circle khỏi map
+  circle.setMap(null)
 ```
 
-## 3. Sự kiện click circle
+## 3. Các sự kiện trên circle
 
-Phát sinh khi người dùng click vào polygon
+Sự kiện click phát sinh khi người dùng click vào circle
 
 ```javascript
-let clickMapsEventClick = this.map.addListener("circleClick", (args) => {
-      console.log("CircleClick clicked: ")
+let clickEvent = this.map.addListener("click", (args) => {
+      console.log("Circle clicked: ")
       console.log(args)
-    })
+    }, {circle: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    clickEvent.remove();
 ```
 
-## 4. Sự kiện hover Circle
-
-Phát sinh khi người dùng hover vào circle
+Sự kiện hover phát sinh khi người dùng rê chuột vào circle
 
 ```javascript
-  let clickMapsEventClick = this.map.addListener("circleHover", (arg) => {
-      console.log("Circle hover: ")
+  let hoverEvent = this.map.addListener("hover", (arg) => {
+      console.log(Circle hover: ")
       console.log(arg)
-    })
+    }, {circle: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    hoverEvent.remove();
 ```
+
+Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
 License
 -------
