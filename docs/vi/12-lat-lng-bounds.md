@@ -17,15 +17,22 @@ Lớp LatLngBounds đại diện cho một hình chữ nhật trong toạ độ 
 ## 2. Tạo đối tượng LatLngBounds
 
 ```javascript
-  //tạo đối tượng latLngBounds từ PolygonOptions
-  new map4d.LatLngBounds([8.606498, 104.699308], [10.567800, 107.974320])
+  let bounds = new map4d.LatLngBounds([8.606498, 104.699308], [10.567800, 107.974320])
+```
+
+Ngoài ra ta có thể extend các tọa độ vào trong LatLngBounds.
+Ví dụ:
+```javascript
+	let bounds = new map4d.LatLngBounds()
+	bounds.extend([8.606498, 104.699308])
+	bounds.extend([10.567800, 107.974320])
+	bounds.extend([10.767800, 105.974320])
 ```
 
 ## 3. Hướng dẫn sử dụng fitBounds
 
 ```javascript
-  // fitbounds
-  fitBounds(bounds: ILatLngBounds, padding?: PaddingOptions, animationOptions?: AnimationOptions): void
+fitBounds(bounds: ILatLngBounds, padding?: PaddingOptions, animationOptions?: AnimationOptions): void
 ```
 
 ```javascript
@@ -65,10 +72,10 @@ Lớp LatLngBounds đại diện cho một hình chữ nhật trong toạ độ 
         right: 10
       }
 
-      // Gọi hàm fitbounds
+      // Gọi hàm fitbounds (trong trường hợp này chúng ta không sử dụng animation)
       map.fitBounds(latLngBounds, paddingOptions, null)
 
-      // Marker dùng để test
+      // Markers dùng để test
       // Marker dùng để test 2 điểm tây nam và đông bắc.
       let swMarker  = new map4d.Marker({
         position: latLngBounds.getSouthwest(),

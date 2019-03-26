@@ -1,13 +1,13 @@
 # Polyline
-Lớp Polyline cho phép người dùng vẽ một polyline lên map.
+Lớp Polyline cho phép người dùng vẽ một polyline lên bản đồ.
 
 ## 1. Polyline & PolylineOptions
 
 ```javascript
   interface PolylineOptions {
-    path: ILatLng[] // Một mảng danh sách các toạ độ cần vẽ polyline lên map.
-    strokeWidth?: number // Chiều rộng polyline
-    strokeColor?: string // Màu sắc
+    path: ILatLng[] // Một mảng danh sách các toạ độ cần vẽ polyline lên map
+    strokeWidth?: number // Chiều rộng polyline tính bằng point
+    strokeColor?: string // Màu sắc marker bằng mã hex
     strokeOpacity?: number // Độ trong suốt
     visible?: boolean // Ẩn hoặc hiện polyline
     closed?: boolean // Cho phép nối điểm đầu và điểm cuối lại với nhau.
@@ -29,6 +29,9 @@ Lớp Polyline cho phép người dùng vẽ một polyline lên map.
     getStrokeOpacity(): number // Lấy độ trong suốt polyline
     isVisible(): boolean // Kiểm tra ẩn hiện polyline
     isClosed(): boolean // Kiểm tra điểm đầu và điểm cuối có nối lại với nhau không ?
+
+	getUserData(): any // Lấy user data được gán cho polyline
+    setUserData(data: any) // Thêm user data cho polyline
   }
 ```
 
@@ -48,37 +51,39 @@ Lớp Polyline cho phép người dùng vẽ một polyline lên map.
         ], visible: true, strokeColor: "#ff0000", strokeWidth: 10, strokeOpacity: 1.0,
         closed: true
       })
-  //thêm marker vào map    
+  //thêm polyline vào map    
   polyline.setMap(map)
+  //Xóa polyline khỏi map
+  polyline.setMap(null)
 ```
 
-## 3. Sự kiện click polyline
+## 3. Các sự kiện trên polyline
 
-Phát sinh khi người dùng click vào polyline
+Sự kiện click phát sinh khi người dùng click vào polyline
 
 ```javascript
-let clickMapsEventClick = this.map.addListener("polylineClick", (args) => {
+let clickEvent = this.map.addListener("click", (args) => {
       console.log("Polyline clicked: ")
       console.log(args)
-    })
+    }, {polyline: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    clickEvent.remove();
 ```
 
-## 4. Sự kiện hover polyline
-
-Phát sinh khi người dùng hover vào polyline
+Sự kiện hover phát sinh khi người dùng rê chuột vào polyline
 
 ```javascript
-  let clickMapsEventClick = this.map.addListener("polylineHover", (arg) => {
-      console.log("Object hover: ")
+  let hoverEvent = this.map.addListener("hover", (arg) => {
+      console.log("Polyline hover: ")
       console.log(arg)
-    })
+    }, {polyline: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    hoverEvent.remove();
 ```
+
+Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
 License
 -------

@@ -13,7 +13,9 @@ interface MarkerOptions {
     title?: string //tiêu đề của marker
     snippet?: string //mô tả ngắn gọn của marker
     windowAnchor?: IPoint //điểm neo của bảng thông tin marker (bảng thông tin này sẽ hiện khi click vào marker)
-  }  
+	zIndex?: number // z index của marker. Marker nào có z index cao hơn sẽ đè lên marker có z index thấp hơn. Mặc định là 0
+	label?: string | MarkerLabel // Vẽ chữ ở tâm marker
+  }
 
   class Marker {
     constructor(options: MarkerOptions) //hàm tạo marker từ 1 MarkerOptions
@@ -27,7 +29,9 @@ interface MarkerOptions {
     setTitle(title: string): void //thay đổi tiêu đề
     setSnippet(snippet: string): void //thay đổi mô tả
     setWindowAnchor(anchor: IPoint): void //thay đổi điểm neo của bảng thông tin marker
-    //getter
+    setZIndex(zIndex: number): void // thay đổi z index của marker
+	setLabel(label: string | MarkerLabel): void // thay đổi label của marker
+	//getter
     getPosition(): LatLng
     isVisible(): boolean
     getAnchor(): Point
@@ -39,6 +43,29 @@ interface MarkerOptions {
     isInfoWindowShown(): boolean
     hideInfoWindow(): void //ẩn bảng thông tin marker
     showInfoWindow(): void //hiện bảng thông tin marker
+	getZIndex(): number
+
+	getUserData(): any // Lấy user data được gán cho marker
+    setUserData(data: any) // Thêm user data cho marker
+  }
+
+  interface MarkerLabelOptions {
+    text: string
+    color?: string
+    fontSize?: number
+    halo?: boolean
+    haloColor?: string
+    anchor?: IPoint
+  }
+
+  class MarkerLabel {
+    constructor(options: MarkerLabelOptions)
+    getColor(): string
+    getFontSize(): number
+    getText(): string
+    hasHalo(): boolean
+    getHaloColor(): string
+    getAnchor(): Point
   }
 
   class Icon {
@@ -68,38 +95,40 @@ let marker = new map4d.Marker({
 })
 
 //thêm marker vào map    
-marker.setMap(map)    
+marker.setMap(map)
+//Xóa marker khỏi map
+marker.setMap(null)
 ```
 
-## 3. Sự kiện click marker
+## 3. Các sự kiện trên marker
 
-Phát sinh khi người dùng click vào marker
+Sự kiện click phát sinh khi người dùng click vào marker
 
 ```javascript
-let clickMapsEventClick = this.map.addListener("markerClick", (args) => {
+let clickEvent = this.map.addListener("click", (args) => {
       console.log("Marker clicked: ")
       console.log(args)
-    })
+    }, {marker: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    clickEvent.remove();
 ```
 
-## 4. Sự kiện hover marker
-
-Phát sinh khi người dùng hover vào marker
+Sự kiện hover phát sinh khi người dùng rê chuột vào marker
 
 ```javascript
-  let clickMapsEventClick = this.map.addListener("markerHover", (arg) => {
+  let hoverEvent = this.map.addListener("hover", (arg) => {
       console.log("Marker hover: ")
       console.log(arg)
-    })
+    }, {marker: true})
 
     //sau khi dùng xong
-    clickMapsEventClick.remove();
+    hoverEvent.remove();
 ```
 
-## 5. Tùy chọn hiển thị thông tin marker
+Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
+
+## 4. Tùy chọn hiển thị thông tin marker
 Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
 
 - Tùy biến nội dung thông tin với layout mặc định
@@ -117,6 +146,27 @@ Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dù
         `<p>${marker.getSnippet()}</p>`
     })
 ```
+
+## 5. Vẽ chữ lên marker
+Chúng ta có thể vẽ chữ lên marker thông qua thuộc tính label.
+
+```javascript
+//tạo đối tượng marker từ MarkerOption
+let marker = new map4d.Marker({
+  position: {lat: 10.793113, lng:106.720739},
+  icon: new map4d.Icon(32, 32, "https://raw.githubusercontent.com/at-tantv/public_url/master/ic_test_01@1x.png"),
+  anchor: [0.5, 1.0],
+  title: "Tiêu đề",
+  snippet: "Mô tả",
+  label: new map4d.MarkerLabel({text: "Text", color: "ff0000", fontSize: 12})
+})
+
+//thêm marker vào map    
+marker.setMap(map) 
+```
+
+Như ví dụ trên thì vẽ chữ "Text" màu đỏ lên marker và kích thước chữ là 12.
+
 
 License
 -------
