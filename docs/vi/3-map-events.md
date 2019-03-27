@@ -82,7 +82,7 @@ Sau khi đăng ký event Map sẽ trả về cho chúng ta đối tượng MapsE
     }, {marker: true, polygon: true, polyline: true, circle: true, object: true, location: true})
   ```
 
-Đối với các event modeChanged, mouseOver, mouseOut, dragStart, drag, dragEnd, idle, cameraChanging, cameraWillChange thì parameter thứ ba là không cần thiết.
+Đối với các event modeChanged, mouseOver, mouseOut, idle, cameraChanging, cameraWillChange thì parameter thứ ba là không cần thiết.
 Đối với event hover nó chỉ hoạt động với marker, polygon, polyline, circle, object
 
   **-Cách gỡ bỏ một event khi không sử dụng-**

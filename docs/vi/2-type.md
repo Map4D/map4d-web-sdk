@@ -1,7 +1,7 @@
 # Type Public Map4D-SDK
 
 ```javascript
-  // Type definitions for map4dsdk 1.0
+// Type definitions for map4dsdk 1.0
 // Project: https://github.com/iotlinkadmin/map4d-web-sdk (Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)
 // Definitions by: Sua Le <https://github.com/sua8051>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -282,6 +282,7 @@ declare module 'map4d' {
     windowAnchor?: IPoint
     zIndex?: number
     label?: string | MarkerLabel
+    draggable?: boolean
   }
 
   interface MarkerLabelOptions {
@@ -319,6 +320,8 @@ declare module 'map4d' {
     setInfoWindow(infoWindow: string | Node): void
     setInfoContents(infoContents: string | Node): void
     isInfoWindowShown(): boolean
+    setDraggable(draggable: boolean): void
+    isDraggable(): boolean
 
     getUserData(): any
     setUserData(data: any)
@@ -443,5 +446,4 @@ declare module 'map4d' {
     setMap(map: Map): void
   }
 }
-
 ```

@@ -15,6 +15,7 @@ interface MarkerOptions {
     windowAnchor?: IPoint //điểm neo của bảng thông tin marker (bảng thông tin này sẽ hiện khi click vào marker)
 	zIndex?: number // z index của marker. Marker nào có z index cao hơn sẽ đè lên marker có z index thấp hơn. Mặc định là 0
 	label?: string | MarkerLabel // Vẽ chữ ở tâm marker
+    draggable?: boolean // Bật tắt tính năng kéo marker qua vị trí khác
   }
 
   class Marker {
@@ -44,6 +45,8 @@ interface MarkerOptions {
     hideInfoWindow(): void //ẩn bảng thông tin marker
     showInfoWindow(): void //hiện bảng thông tin marker
 	getZIndex(): number
+	setDraggable(draggable: boolean): void
+    isDraggable(): boolean
 
 	getUserData(): any // Lấy user data được gán cho marker
     setUserData(data: any) // Thêm user data cho marker
@@ -100,7 +103,63 @@ marker.setMap(map)
 marker.setMap(null)
 ```
 
-## 3. Các sự kiện trên marker
+## 3. Tùy chọn hiển thị thông tin marker
+Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
+
+- Tùy biến nội dung thông tin với layout mặc định
+```javascript
+    map.setInfoContents((marker: map4d.Marker): string => {
+       return `<h4>${marker.getTitle()}</h4>` +
+        `<p>${marker.getSnippet()}</p>`
+    })
+```
+
+- Tùy biến bảng hiển thị thông tin bao gồm cả layout và nội dung
+```javascript
+    map.setInfoWindow((marker: map4d.Marker): string => {
+      return `<h4>${marker.getTitle()}</h4>` +
+        `<p>${marker.getSnippet()}</p>`
+    })
+```
+
+## 4. Vẽ chữ lên marker
+Chúng ta có thể vẽ chữ lên marker thông qua thuộc tính label.
+
+```javascript
+//tạo đối tượng marker từ MarkerOption
+let marker = new map4d.Marker({
+  position: {lat: 10.793113, lng:106.720739},
+  icon: new map4d.Icon(32, 32, "https://raw.githubusercontent.com/at-tantv/public_url/master/ic_test_01@1x.png"),
+  anchor: [0.5, 1.0],
+  title: "Tiêu đề",
+  snippet: "Mô tả",
+  label: new map4d.MarkerLabel({text: "Text", color: "ff0000", fontSize: 12})
+})
+
+//thêm marker vào map    
+marker.setMap(map) 
+```
+
+Như ví dụ trên thì vẽ chữ "Text" màu đỏ lên marker và kích thước chữ là 12.
+
+## 5. Draggable marker 
+Chúng ta có thể cho phép người dùng kéo marker tới vị trí khác bằng cách bật thuộc tính **draggable** bằng true (mặc đinh thuộc tính này được khởi tạo là false).
+
+```javascript
+let marker = new map4d.Marker({
+  position: {lat: 10.793113, lng:106.720739},
+  draggable: true
+})
+marker.setMap(map) 
+```
+
+Với việc thêm marker vào bản đồ bằng cách trên thì ta có thể kéo marker tới một vị trí khác bằng chuột.
+Ngoài ra chúng ta có thể sử dụng hàm **setDraggable** để bật tắt tính năng này
+```javascript
+marker.setDraggable(true)
+```
+
+## 6. Các sự kiện trên marker
 
 Sự kiện click phát sinh khi người dùng click vào marker
 
@@ -126,47 +185,23 @@ Sự kiện hover phát sinh khi người dùng rê chuột vào marker
     hoverEvent.remove();
 ```
 
+Các sự kiện khi người dùng kéo draggable marker
+```javascript
+let dragStart event = this.map.addListener("dragStart", (args) => {
+  // Sự kiện này sẽ được gọi khi bắt đầu kéo draggable marker
+}, {marker: true})
+
+let dragStart event = this.map.addListener("drag", (args) => {
+  // Sự kiện này sẽ được gọi trong khi kéo draggable marker
+}, {marker: true})
+
+let dragStart event = this.map.addListener("dragEnd", (args) => {
+  // Sự kiện này sẽ được gọi sau khi kéo draggable marker xong
+}, {marker: true})
+
+```
+
 Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
-
-## 4. Tùy chọn hiển thị thông tin marker
-Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
-
-- Tùy biến nội dung thông tin với layout mặc định
-```javascript
-    map.setInfoContents((marker: map4d.Marker): string => {
-       return `<h4>${marker.getTitle()}</h4>` +
-        `<p>${marker.getSnippet()}</p>`
-    })
-```
-
-- Tùy biến bảng hiển thị thông tin bao gồm cả layout và nội dung
-```javascript
-    map.setInfoWindow((marker: map4d.Marker): string => {
-      return `<h4>${marker.getTitle()}</h4>` +
-        `<p>${marker.getSnippet()}</p>`
-    })
-```
-
-## 5. Vẽ chữ lên marker
-Chúng ta có thể vẽ chữ lên marker thông qua thuộc tính label.
-
-```javascript
-//tạo đối tượng marker từ MarkerOption
-let marker = new map4d.Marker({
-  position: {lat: 10.793113, lng:106.720739},
-  icon: new map4d.Icon(32, 32, "https://raw.githubusercontent.com/at-tantv/public_url/master/ic_test_01@1x.png"),
-  anchor: [0.5, 1.0],
-  title: "Tiêu đề",
-  snippet: "Mô tả",
-  label: new map4d.MarkerLabel({text: "Text", color: "ff0000", fontSize: 12})
-})
-
-//thêm marker vào map    
-marker.setMap(map) 
-```
-
-Như ví dụ trên thì vẽ chữ "Text" màu đỏ lên marker và kích thước chữ là 12.
-
 
 License
 -------
