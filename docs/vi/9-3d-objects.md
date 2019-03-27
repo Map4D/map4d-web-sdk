@@ -200,6 +200,7 @@ Chúng ta có thể set thuộc tính **draggable** cho đối tượng 3D. Thu�
 
 ## 7. Các sự kiện trên đối tượng 3D
 Sự kiện click phát sinh khi người dùng click lên đối tượng 3D
+
 ```javascript
 let clickEvent = this.map.addListener("click", (args) => {
       console.log("Object clicked: ")
@@ -208,6 +209,23 @@ let clickEvent = this.map.addListener("click", (args) => {
 
 	//sau khi dùng xong
     clickEvent.remove();
+```
+
+Các sự kiện khi người dùng kéo draggable đối tượng 3D
+
+```javascript
+let dragStart event = this.map.addListener("dragStart", (args) => {
+  // Sự kiện này sẽ được gọi khi bắt đầu kéo draggable đối tượng 3D
+}, {object: true})
+
+let dragStart event = this.map.addListener("drag", (args) => {
+  // Sự kiện này sẽ được gọi trong khi kéo draggable đối tượng 3D
+}, {object: true})
+
+let dragStart event = this.map.addListener("dragEnd", (args) => {
+  // Sự kiện này sẽ được gọi sau khi kéo draggable đối tượng 3D xong
+}, {object: true})
+
 ```
 
 Ngoài ra map4d SDK còn hỗ trợ nhiều loai sự kiện trên đối tượng 3D như: long click, right click, hover...
