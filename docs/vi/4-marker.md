@@ -108,18 +108,12 @@ Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dù
 
 - Tùy biến nội dung thông tin với layout mặc định
 ```javascript
-    map.setInfoContents((marker: map4d.Marker): string => {
-       return `<h4>${marker.getTitle()}</h4>` +
-        `<p>${marker.getSnippet()}</p>`
-    })
+    marker.setInfoContents("có thể là string hoặc html") 
 ```
 
 - Tùy biến bảng hiển thị thông tin bao gồm cả layout và nội dung
 ```javascript
-    map.setInfoWindow((marker: map4d.Marker): string => {
-      return `<h4>${marker.getTitle()}</h4>` +
-        `<p>${marker.getSnippet()}</p>`
-    })
+    marker.setInfoWindow("có thể là string hoặc html")
 ```
 
 ## 4. Vẽ chữ lên marker
