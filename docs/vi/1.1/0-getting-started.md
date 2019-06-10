@@ -234,7 +234,39 @@ ICameraPosition = CameraPosition | {target: ILatLng, tilt: number, bearing: numb
   - padding: tùy chọn, mặc định là 0, cho phép tùy chỉnh padding với bounds
   - animationOptions: tùy chọn, mặc định là null. Cho phép tùy biến chuyển động.
 
- ## 8. Ghi chú
+## 8. Các Chế độ chuyển đổi mode 2D và 3D
+Cho phép thay đổi chế độ chuyển 2D & 3D của map. Có 4 chế độ:
+
+```javascript
+enum SwitchMode {
+    Auto2DTo3D,
+    Auto3DTo2D,
+    Auto,
+    Manual
+}   
+```
+
+```javascript
+  map.setSwitchMode(mode: SwitchMode): void
+```
+- Chế độ mặc định là **Auto**
+- Auto3DTo2D:
+  - **Không** tự động chuyển chuyển từ chế độ 3D qua 2D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
+  - Khi map đang ở mức zoom >= 17, map ở chế độ 3D thì khi điều khiển zoom xuống zoom < 17, map sẽ tự động chuyển hoàn toàn về chế độ 2D.
+- Auto2DTo3D:
+  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.
+  - Khi map đang ở mức zoom >= 17, nếu map đang chế độ 2D, thì map vẫn có thể zoom về mức zoom < 17.
+- Auto:
+  - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
+  - Tự động chuyển từ chế độ 3D sang 2D khi điều khiển zoom từ mức zoom >= 17 về mức zoom < 17.
+- Manual:
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17. Map cũng không tự động chuyển về chế độ 3D khi zoom từ mức zoom 17 lên 18. 
+
+
+> Các chế độ trên chỉ hoạt động khi chế độ 3D được kích hoạt **enable3dMode(true)**
+
+ ## 9. Ghi chú
  Các kiểu dữ liệu **Point, LatLng, CameraPosition, SwitchMode, ControlOptions** là các kiểu dữ liệu của Map4D-SDK, muốn sử dụng được phải thông qua **module map4d**
  Ví dụ:
  ```javascript
