@@ -17,6 +17,8 @@ declare module 'map4d' {
     radius?: number
     fillColor?: string
     fillOpacity?: number
+    strokeColor?: string
+    strokeWidth?: number
     visible?: boolean
     draggable?: boolean
     zIndex?: number

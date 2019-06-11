@@ -9,7 +9,7 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
     radius?: number // Bán kính Circle tính theo mét
     fillColor?: string // Màu sắc Circle theo hex
     fillOpacity?: number // Độ trong suốt Circle
-	strokeColor?: string // màu của border của Circle
+    strokeColor?: string // màu của border của Circle
     strokeWidth?: number // độ rộng border của Circle theo Point, default = 0 là không vẽ
     visible?: boolean // Ẩn hoặc hiện Circle
     draggable?: boolean // Cho phép kéo Polyline di chuyển trên bản đồ bằng chuột trái, default = false
@@ -25,14 +25,13 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
     setRadius(radius: number): void // Cài đặt bán kính Circle
     setFillColor(fillColor: string) // Cài đặt màu sắc Circle
     setFillOpacity(fillOpacity: number) // Cài đặt độ trong suốt Circle
-	setFillOpacity(fillOpacity: number): // Cài đặt độ trong suốt Circle
     setStrokeColor(strokeColor: string): // cài đăt màu sắc border của Circle
     setVisible(visible: boolean) // Cài đặt ẩn hiện Circle
     getCenter(): LatLng // Lấy thông tin tâm Circle
     getRadius(): number // Lấy thông tin bán kính Circle
     getFillColor(): string // Lấy thông tin màu sắc Circle
     getFillOpacity(): number // Lấy thông tin độ trong suốt Circle
-	getStrokeColor(): string // lấy giá trị màu của border
+    getStrokeColor(): string // lấy giá trị màu của border
     getStrokeWidth(): number  // lấy giá trị độ rộng của border
     isVisible(): boolean // Kiểm tra ẩn hiện Circle
     getZIndex(): boolean // lấy giá trị của zIndex
@@ -42,7 +41,7 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
     isDraggable(): boolean // lấy giá trị của draggable
     setDraggable(value: boolean): void // cài đặt giá trị của draggable
             
-	getUserData(): any // Lấy user data được gán cho polygon
+    getUserData(): any // Lấy user data được gán cho polygon
     setUserData(data: any) // Thêm user data cho polygon
   }
 ```
@@ -52,15 +51,50 @@ Lớp Circle cho phép người dùng vẽ một Circle lên map.
 
 ```javascript
   //tạo đối tượng circle từ CircleOptions
-  let circle = new map4d.Circle({center: {lat: 10.773201, lng: 106.700147}, radius: 100, bringFrontBuilding: true, zIndex: 10, draggable: true, strokeWidth: 5})
-
+  let circle = new map4d.Circle({
+        center: {lat: 10.773201, lng: 106.700147},
+        fillColor: "#ff0000",
+        radius: 100,
+  })
+  
   //thêm circle vào map    
   circle.setMap(this.map)
-  //xóa circle khỏi map
-  circle.setMap(null)
 ```
 
-## 3. Các sự kiện trên circle
+Như ví dụ trên vẽ một hình tròn có bán kinh 100m lên bản đồ.
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/8-circle-1.png)] 
+
+Ta có thể vẽ viền của đường tròn thông qua thuộc tính **strokeWidth** và **strokeColor**.
+**strokeWidth** sẽ quyết định kích thước của viền
+**strokeColor** sẽ quyết định màu của viền nếu không xác định hệ thống sẽ dùng màu mặc đinh (#00ff00)
+
+```javascript
+  //tạo đối tượng circle từ CircleOptions
+  let circle = new map4d.Circle({
+        center: {lat: 10.773201, lng: 106.700147},
+        fillColor: "#ff0000",
+        radius: 100,
+        strokeWidth: 2.0,
+        strokeColor: "#0000ff"
+  })
+  
+  //thêm circle vào map    
+  circle.setMap(this.map)
+```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/8-circle-2.png)] 
+
+## 3. Xóa circle 
+
+Để xóa circle khỏi map ta gán map về null.
+
+```javascript
+//Xóa circle khỏi map
+circle.setMap(null)
+```
+
+## 4. Các sự kiện trên circle
 
 Sự kiện click phát sinh khi người dùng click vào circle
 
@@ -88,7 +122,7 @@ Sự kiện hover phát sinh khi người dùng rê chuột vào circle
 
 Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
-## 4. Thứ tự vẽ các layer
+## 5. Thứ tự vẽ các layer
 
 - bringFrontBuilding mặc định là false. Nếu muốn vẽ đè lên thì set bằng true
 	
@@ -100,7 +134,7 @@ Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long cli
 bằng true thì sẽ dựa vào index để vẽ, zIndex càng lớn càng vẽ sau.
 
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let circleA = new map4d.Circle({center: {lat: 10.773201, lng: 106.700147}, radius: 50, bringFrontBuilding: true, zIndex: 15, draggable: true,
@@ -119,7 +153,7 @@ Như ví dụ ở trên thì circleA sẽ đè lên circleB vì nó có zIndex l
 
 - zIndex bằng nhau thì add vô sau sẽ vẽ sau.
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let circleA = new map4d.Circle({center: {lat: 10.773201, lng: 106.700147}, radius: 100, bringFrontBuilding: true, zIndex: 10, draggable: true,

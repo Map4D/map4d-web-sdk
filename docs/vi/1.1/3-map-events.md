@@ -49,7 +49,7 @@ Hướng dẫn sử dụng các sự kiện của Map4D SDK.
   - Được gọi khi rê chuột vào annotation hoặc đối tượng 3D.
   
   **1.15. tilesLoaded**
-  - Được gọi khi tất cả các visible tiles đã load hoàn thành 
+  - Được gọi khi tất cả các visible tiles đã load hoàn thành (visible tiles là tất cả tiles sẽ được hiển thị trên màn hình)
   
   **1.16. boundsChanged** 
   - Được gọi khi viewport đã thay đổi 

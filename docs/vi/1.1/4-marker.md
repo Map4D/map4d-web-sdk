@@ -103,6 +103,7 @@ Lớp Marker cho phép người dùng add một điểm ghim trên bản đồ t
 ```
 ***Chú ý:***
   - Width, height của icon và marker mặc định là 32x32 nếu không cung cấp giá trị.
+  - Nếu không truyền icon thì hệ thống sẽ sử dụng hình ảnh marker mặc định.
   - Đối với đối tượng icon, hoặc hàm setIcon truyền vào 1 url là đường dẫn tới hình ảnh icon.
     - Để hỗ trợ hiển thị marker trên nhiều màn hình 1x (màn hình thông thường), 2x (màn hình Apple rentina, hoặc các màn hình độ phân giải cao 2k, 4k) bạn phải chuẩn bị 3 ảnh 1x, 2x, 3x (thêm hậu tố @1x, @2x, @3x) và khi gán giá trị cho url cho icon thì truyền vào đường dẫn icon 1x (http://yourwebsite.com/path/image-marker@1x.png). SDK sẽ tự động hiển thị ảnh phù hợp với màn hình đang hiển thị.
     - Nếu đường dẫn hình ảnh truyền vào không có hậu tố @1x thì hình ảnh sẽ được tự động scale để hiển thị phù hợp.
@@ -115,16 +116,9 @@ let marker = new map4d.Marker({
   position: {lat: 10.793113, lng:106.720739},
   icon: new map4d.Icon(32, 32, "https://raw.githubusercontent.com/at-tantv/public_url/master/ic_test_01@1x.png"),
   anchor: [0.5, 0.5],
-  title: "Tiêu đề",
-  snippet: "Mô tả"
 })
 //thêm marker vào map    
 marker.setMap(map)
-```
-
-```javascript
-//Xóa marker khỏi map
-marker.setMap(null)
 ```
 
 ## 3. Tạo marker với iconView
@@ -133,15 +127,41 @@ marker.setMap(null)
 //tạo đối tượng marker với iconView  
   let marker = new map4d.Marker({
     position: {lat: 10.773766, lng:106.709001},
-    iconView: `<div style=\"width: 32px; height: 32px; background-color: red; text-align: center; color: #FFBBFF;\">M</div>`,
+    iconView: `<div style=\"width: 32px; height: 32px; background-color: red; text-align: center; color: #000000;\">Text</div>`,
     anchor: [0.5, 0.5],
   })
 //thêm marker vào map    
 marker.setMap(map)
 ```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-1.png)] 
+
 - Bạn có thể vẽ marker bằng HTML node thông qua thuộc tính iconView như trên
+
+## 4. Xóa marker
+
+Để xóa marker khỏi map ta gán map về null.
+
+```javascript
+//Xóa marker khỏi map
+marker.setMap(null)
+```
+  
+## 5. Hiển thị bảng thông tin marker
+Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị dựa vào điểm neo windowAnchor.
+
+```javascript
+    let marker = new map4d.Marker({
+      title: "Demo title",
+      snippet: "Demo description",
+      position: {lat: 10.773766, lng:106.709001},
+    })
+    marker.setMap(this.map)
+```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-2.png)] 
     
-## 4. Tùy chọn hiển thị thông tin marker
+## 6. Tùy chọn hiển thị thông tin marker
 Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
 
 - Tùy biến nội dung thông tin với layout mặc định
@@ -154,27 +174,26 @@ Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dù
     marker.setInfoWindow("có thể là string hoặc html")
 ```
 
-## 5. Vẽ chữ lên marker
+## 7. Vẽ chữ lên marker
 Chúng ta có thể vẽ chữ lên marker thông qua thuộc tính label.
 
 ```javascript
 //tạo đối tượng marker từ MarkerOption
 let marker = new map4d.Marker({
   position: {lat: 10.793113, lng:106.720739},
-  icon: new map4d.Icon(32, 32, "https://raw.githubusercontent.com/at-tantv/public_url/master/ic_test_01@1x.png"),
   anchor: [0.5, 1.0],
-  title: "Tiêu đề",
-  snippet: "Mô tả",
-  label: new map4d.MarkerLabel({text: "Text", color: "ff0000", fontSize: 12})
+  label: new map4d.MarkerLabel({text: "Text", color: "000000", fontSize: 12})
 })
 
 //thêm marker vào map    
 marker.setMap(map) 
 ```
 
-Như ví dụ trên thì vẽ chữ "Text" màu đỏ lên marker và kích thước chữ là 12.
+Như ví dụ trên thì vẽ chữ "Text" màu đen lên marker và kích thước chữ là 12.
 
-## 6. Draggable marker 
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-3.png)] 
+
+## 8. Draggable marker 
 Chúng ta có thể cho phép người dùng kéo marker tới vị trí khác bằng cách bật thuộc tính **draggable** bằng true (mặc đinh thuộc tính này được khởi tạo là false).
 
 ```javascript
@@ -191,7 +210,7 @@ Ngoài ra chúng ta có thể sử dụng hàm **setDraggable** để bật tắ
 marker.setDraggable(true)
 ```
 
-## 7. Các sự kiện trên marker
+## 9. Các sự kiện trên marker
 
 Sự kiện click phát sinh khi người dùng click vào marker
 
@@ -235,7 +254,7 @@ let dragEnd = this.map.addListener("dragEnd", (args) => {
 
 Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
-## 8. Một vài lưu ý khi vẽ Marker
+## 10. Một vài lưu ý khi vẽ Marker
 - bringFrontBuilding: Mặt định là true, marker nào set bằng true thì sẽ được hiển thị trước, nếu có cùng giá trị thì sẽ vẽ theo zIndex
 - zIndex: Marker nào có zIndex lớn hơn sẽ ưu tiên hiển thị trước, zIndex càng lớn càng sẽ được vẽ sau.
 

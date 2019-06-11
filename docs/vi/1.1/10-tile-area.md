@@ -39,8 +39,19 @@ Lớp TileArea cho phép người dùng thực hiện thay thế các tile tại
   let tileArea = new map4d.TileArea(tileAreaOption)
   // Cài đặt map cần vẽ
   tileArea.setMap(map)
-  // Xóa tile area
-  tileArea.setMap(null)
+```
+
+Như ví dụ trên tất cả các tile nào nằm trong bounds sẽ được thay thế bằng tile được download từ http://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/10-tile-area-1.png)] 
+
+## 3. Xóa tile area 
+
+Để xóa tile area khỏi map ta gán map về null.
+
+```javascript
+//Xóa tile area khỏi map
+tileArea.setMap(null)
 ```
 
 License

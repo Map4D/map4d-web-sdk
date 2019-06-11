@@ -37,7 +37,7 @@ Lớp Polyline cho phép người dùng vẽ một polyline lên bản đồ.
     isBringFrontBuilding(): boolean  // lấy giá trị bringFrontBuilding
     setBringFrontBuilding(bringFrontBuilding: boolean): void // cài đặt giá trị của bringFrontBuilding
 
-	getUserData(): any // Lấy user data được gán cho polyline
+    getUserData(): any // Lấy user data được gán cho polyline
     setUserData(data: any) // Thêm user data cho polyline
     isDraggable(): boolean // lấy giá trị của draggable
     setDraggable(value: boolean): void // cài đặt giá trị của draggable
@@ -50,28 +50,63 @@ Lớp Polyline cho phép người dùng vẽ một polyline lên bản đồ.
 ```javascript
   //tạo đối tượng polyline từ PolylineOptions
   let polyline = new map4d.Polyline({
-    path: [
-      [10.772431, 106.699380],
-      [10.773201, 106.700147],
-      [10.771783, 106.700763],
-      [10.772302, 106.701901],
-      [10.773267, 106.701493],
-      [10.773599, 106.702835]
-    ], visible: true, strokeColor: "#ff0000", strokeWidth: 10, strokeOpacity: 1.0,
-    closed: true, draggable: true, zIndex: 10, bringFrontBuilding: true
-  })
+        path: [
+          [10.772431, 106.699380],
+          [10.773201, 106.700147],
+          [10.771783, 106.700763],
+          [10.772302, 106.701901],
+          [10.773267, 106.701493],
+          [10.773599, 106.702835]
+        ],
+        strokeColor: "#ff0000",
+        strokeOpacity: 1.0,
+        strokeWidth: 10})
   //thêm polyline vào map    
   polyline.setMap(map)
-  //Xóa polyline khỏi map
-  polyline.setMap(null)
 ```
 
-## 3. Các sự kiện trên polyline
+Như ví dụ trên vẽ polyline với màu là màu đỏ và độ rộng là 10 point.
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/6-polyline-1.png)] 
+
+Trong map sdk có một thuộc tính gọi là **closed** khi cài đặt là true thì sẽ vẽ polyline với điểm đầu và điểm cuối chụm lại với nhau.
+
+```javascript
+  //tạo đối tượng polyline từ PolylineOptions
+  let polyline = new map4d.Polyline({
+        path: [
+          [10.772431, 106.699380],
+          [10.773201, 106.700147],
+          [10.771783, 106.700763],
+          [10.772302, 106.701901],
+          [10.773267, 106.701493],
+          [10.773599, 106.702835]
+        ],
+        strokeColor: "#ff0000",
+        strokeOpacity: 1.0,
+        strokeWidth: 10,
+        closed: true})
+  //thêm polyline vào map    
+  polyline.setMap(map)
+```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/6-polyline-2.png)] 
+
+## 3. Xóa polyline 
+
+Để xóa polyline khỏi map ta gán map về null.
+
+```javascript
+//Xóa polyline khỏi map
+polyline.setMap(null)
+```
+
+## 4. Các sự kiện trên polyline
 
 Sự kiện click phát sinh khi người dùng click vào polyline
 
 ```javascript
-let clickEvent = this.map.addListener("click", (args) => {
+    let clickEvent = this.map.addListener("click", (args) => {
       console.log("Polyline clicked: ")
       console.log(args)
     }, {polyline: true})
@@ -94,7 +129,7 @@ Sự kiện hover phát sinh khi người dùng rê chuột vào polyline
 
 Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
-## 4. Thứ tự vẽ các layer
+## 5. Thứ tự vẽ các layer
 
 - bringFrontBuilding mặc định là false. Nếu muốn vẽ đè lên thì set bằng true
 	
@@ -106,7 +141,7 @@ Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long cli
 bằng true thì sẽ dựa vào index để vẽ, zIndex càng lớn càng vẽ sau.
 
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let polylineA = new map4d.Polyline({
@@ -131,7 +166,7 @@ Như ví dụ ở trên thì polylineA sẽ đè lên polylineB vì nó có zInd
 
 - zIndex bằng nhau thì add vô sau sẽ vẽ sau.
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let polylineA = new map4d.Polyline({

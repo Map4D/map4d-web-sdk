@@ -26,4 +26,4 @@
 - Phóng to 1 mức zoom
   - *Touch 2 lần để tăng 1 mức zoom.*
 - Thu phóng map
-  - *Thu hẹp/ mở rộng khoảng cách của 2 ngón tay để thay đổi mức zoom.*
+  - *Dùng 2 ngón tay di chuyển trái chiều để di chuyển map.*
