@@ -134,7 +134,7 @@ marker.setMap(map)
 marker.setMap(map)
 ```
 
-[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-1.png)] 
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-1.png)
 
 - Bạn có thể vẽ marker bằng HTML node thông qua thuộc tính iconView như trên
 
@@ -159,7 +159,7 @@ Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dù
     marker.setMap(this.map)
 ```
 
-[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-2.png)] 
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-2.png)
     
 ## 6. Tùy chọn hiển thị thông tin marker
 Khi marker có tiêu đề hoặc mô tả (title & snippet), nếu người dùng click vào marker, thông tin marker sẽ được hiển thị (dựa vào điểm neo windowAnchor)
@@ -191,7 +191,7 @@ marker.setMap(map)
 
 Như ví dụ trên thì vẽ chữ "Text" màu đen lên marker và kích thước chữ là 12.
 
-[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-3.png)] 
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/4-marker-3.png)
 
 ## 8. Draggable marker 
 Chúng ta có thể cho phép người dùng kéo marker tới vị trí khác bằng cách bật thuộc tính **draggable** bằng true (mặc đinh thuộc tính này được khởi tạo là false).

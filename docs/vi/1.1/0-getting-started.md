@@ -101,7 +101,7 @@ enum ControlOptions {
 - controls: ẩn hiện bảng điều khiển, mặc định là ẩn
 - controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
 
-[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/0-getting-started-1.png)] 
+![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/0-getting-started-1.png)
 
 ## 5. Giới hạn mức zoom tối đa và tối thiểu
 Có thể set thông qua MapOptions khi khởi tạo map hoặc là phương thức setMinZoom/ setMapZoom.
