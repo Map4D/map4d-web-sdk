@@ -4,13 +4,9 @@ Marker clustering giúp bạn quản lý nhiều markers ở các level zoom. Kh
 ## 1. MarkerClusterer & MarkerClusterOptions
 ```javascript
   interface MarkerClusterOptions {
-
     minZoom?: number
-
     maxZoom?: number
-
     radius?: number
-
     zoomOnClick?: boolean
   }
 ```
@@ -62,6 +58,16 @@ Marker clustering giúp bạn quản lý nhiều markers ở các level zoom. Kh
   })
   let cluster = new map4d.MarkerClusterer(markers, {radius: 150})
   cluster.setMap(map)
+```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/5-marker-cluster-1.png)] 
+
+## 3. Xóa cluster
+
+Để xóa cluster khỏi map ta gán map về null.
+
+```javascript
+cluster.setMap(null)
 ```
 
 License

@@ -39,7 +39,7 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên bản đồ.
     isDraggable(): boolean // lấy giá trị của draggable
     setDraggable(value: boolean): void // cài đặt giá trị của draggable
 
-	getUserData(): any // Lấy user data được gán cho polygon
+    getUserData(): any // Lấy user data được gán cho polygon
     setUserData(data: any) // Thêm user data cho polygon
   }
 ```
@@ -48,41 +48,97 @@ Lớp Polygon cho phép người dùng vẽ một Polygon lên bản đồ.
 ## 2. Tạo polygon
 
 ```javascript
-  //tạo đối tượng polygon từ PolygonOptions
   let polygonOption: map4d.PolygonOptions = {
-    paths:
-      [[{lat: 10.773201, lng: 106.700147}, {lat: 10.771783, lng: 106.700763},
-        {lat: 10.772302, lng: 106.701901}, {lat: 10.773267, lng: 106.701493},
-        {lat: 10.773201, lng: 106.700147}],
-        // hole1
-        [{lat: 10.772785, lng: 106.700738}, {lat: 10.772904, lng: 106.701304},
-          {lat: 10.772752, lng: 106.701319}, {lat: 10.772650, lng: 106.700651},
-          {lat: 10.772785, lng: 106.700738}],
-        // hole2
-        [{lat: 10.772356, lng: 106.700802}, {lat: 10.772479, lng: 106.701413},
-          {lat: 10.772285, lng: 106.701497}, {lat: 10.772059, lng: 106.701064},
-          {lat: 10.772356, lng: 106.700802}]], fillOpacity: 0.9, strokeWidth: 0, bringFrontBuilding: true, zIndex: 15, draggable: true
-  }
-  //thêm polygon vào map
+        paths:
+          [[{lat: 10.773201, lng: 106.700147}, {lat: 10.771783, lng: 106.700763},
+            {lat: 10.772302, lng: 106.701901}, {lat: 10.773267, lng: 106.701493},
+            {lat: 10.773201, lng: 106.700147}]],
+        fillColor: "#0000ff",
+        fillOpacity: 1.0,
+      }
   let polygon = new map4d.Polygon(polygonOption)
-  polygon.setMap(this.map)
-  //Xóa polygon khỏi map
-  polygon.setMap(null)
+  polygon.setMap(this.map)    
 ```
 
-  ***Chú ý:***
-  - Paths là một mảng chứa các mảng với mảng đầu tiên là polygon cần vẽ lên bản đồ. Các mảng tiếp theo là lỗ trên polygon đó.
-  - Điểm đầu điểm cuối danh sách các điểm cần vẽ phải giống nhau
-  - Xem demo ở ví dụ trên
+Như ví dụ trên vẽ 1 polygon có màu xanh da trời lên bản đồ.
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/7-polygon-1.png)] 
+
+Các bạn để ý bên ngoài polygon có viền đỏ. Mặc định khi vẽ polygon sẽ có viền. Chúng ta có thể đổi màu viền thông qua việc đổi thuộc tính **strokeColor**
+
 ```javascript
-[ {lat: 10.773201, lng: 106.700147},
-        {lat: 10.771783, lng: 106.700763},
-        {lat: 10.772302, lng: 106.701901},
-        {lat: 10.773267, lng: 106.701493},
-        {lat: 10.773201, lng: 106.700147}]
+  let polygonOption: map4d.PolygonOptions = {
+        paths:
+          [[{lat: 10.773201, lng: 106.700147}, {lat: 10.771783, lng: 106.700763},
+            {lat: 10.772302, lng: 106.701901}, {lat: 10.773267, lng: 106.701493},
+            {lat: 10.773201, lng: 106.700147}]],
+        fillColor: "#0000ff",
+        fillOpacity: 1.0,
+        strokeColor: "#00ff00"
+      }
+  let polygon = new map4d.Polygon(polygonOption)
+  polygon.setMap(this.map)    
 ```
 
-## 3. Các sự kiện trên polygon
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/7-polygon-2.png)] 
+
+Nếu không muốn vẽ viền có thể tắt thông qua thuộc tính **strokeWidth**. Khời tạo nó bằng 0 nghĩa là không vẽ viền
+
+```javascript
+  let polygonOption: map4d.PolygonOptions = {
+        paths:
+          [[{lat: 10.773201, lng: 106.700147}, {lat: 10.771783, lng: 106.700763},
+            {lat: 10.772302, lng: 106.701901}, {lat: 10.773267, lng: 106.701493},
+            {lat: 10.773201, lng: 106.700147}]],
+        fillColor: "#0000ff",
+        fillOpacity: 1.0,
+        strokeWidth: 0.0
+      }
+  let polygon = new map4d.Polygon(polygonOption)
+  polygon.setMap(this.map)    
+```
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/7-polygon-3.png)] 
+  
+Ta có thể vẽ polygon có lỗ lên bản đồ. Paths là một mảng chứa các mảng, với mảng đầu tiên là polygon cần vẽ lên bản đồ. Các mảng còn lại tương ứng với lỗ trên polygon.
+
+```javascript
+  let polygonOption: map4d.PolygonOptions = {
+        paths: 
+            [[{lat: 10.773201, lng: 106.700147}, {lat: 10.771783, lng: 106.700763},
+              {lat: 10.772302, lng: 106.701901}, {lat: 10.773267, lng: 106.701493},
+              {lat: 10.773201, lng: 106.700147}],
+              // hole1
+             [{lat: 10.772785, lng: 106.700738}, {lat: 10.772904, lng: 106.701304},
+              {lat: 10.772752, lng: 106.701319}, {lat: 10.772650, lng: 106.700651},
+              {lat: 10.772785, lng: 106.700738}],
+              // hole2
+             [{lat: 10.772356, lng: 106.700802}, {lat: 10.772479, lng: 106.701413},
+              {lat: 10.772285, lng: 106.701497}, {lat: 10.772059, lng: 106.701064},
+              {lat: 10.772356, lng: 106.700802}]],
+      }
+  let polygon = new map4d.Polygon(polygonOption)
+  polygon.setMap(this.map)    
+```
+
+Như ví dụ trên ta vẽ 1 polygon với 2 cái lỗ.
+
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/7-polygon-4.png)] 
+
+***Chú ý:***
+- Điểm đầu điểm cuối danh sách các điểm cần vẽ phải **GIỐNG NHAU**
+- Kích thước của viền luôn luôn là 1 với bất cứ giá trị **strokeWidth** lớn hơn 0
+
+## 3. Xóa polygon 
+
+Để xóa polygon khỏi map ta gán map về null.
+
+```javascript
+//Xóa polygon khỏi map
+polygon.setMap(null)
+```
+
+## 4. Các sự kiện trên polygon
 
 Sự kiện click phát sinh khi người dùng click vào polygon
 
@@ -110,7 +166,7 @@ Sự kiện hover phát sinh khi người dùng rê chuột vào polygon
 
 Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long click, right click...
 
-## 4. Thứ tự vẽ các layer
+## 5. Thứ tự vẽ các layer
 
 - bringFrontBuilding mặc định là false. Nếu muốn vẽ đè lên thì set bằng true
 	
@@ -122,7 +178,7 @@ Ngoài ra map4d SDK còn hỗ trợ các loại sự kiện khác như: long cli
 bằng true thì sẽ dựa vào index để vẽ, zIndex càng lớn càng vẽ sau.
 
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let polygonOptionA: map4d.PolygonOptions = {
@@ -157,7 +213,7 @@ Như ví dụ ở trên thì polygonA sẽ đè lên polygonB vì nó có zIndex
 
 - zIndex bằng nhau thì add vô sau sẽ vẽ sau.
 
-**Example:**
+**Ví dụ:**
 
 ```javascript
 	let polygonOptionA: map4d.PolygonOptions = {

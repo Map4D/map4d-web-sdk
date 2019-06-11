@@ -101,13 +101,17 @@ enum ControlOptions {
 - controls: ẩn hiện bảng điều khiển, mặc định là ẩn
 - controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
 
+[![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/0-getting-started-1.png)] 
 
 ## 5. Giới hạn mức zoom tối đa và tối thiểu
-Có thể set thông qua MapOptions khi khởi tạo map hoặc là phương thức setMinZoom/ setMapZoom
+Có thể set thông qua MapOptions khi khởi tạo map hoặc là phương thức setMinZoom/ setMapZoom.
+Giá trị mặc định của minZoom và maxZoom nằm trong khoảng [0, 22]
+
 ```javascript
   map.setMinZoom(7)
   map.setMaxZoom(18)
 ```
+Như ví dụ trên thì sau khi cài đặt map như trên thì các mức zoom của map chỉ có thể nằm trong khoảng [7, 18]. Chúng ta không thể zoom map tới vị trị nằm ngoài khoảng [7, 18] kể cả sử dụng các hàm thay đổi vị trí của camera. 
 
 ## 6. Lấy các thông số của map.
 
@@ -174,9 +178,9 @@ getCamera(): CameraPosition
 
   > Chú ý: Ở mức zoom >= 17 mới có chế độ 3D và tìm hiểu chi tiết về các chế độ ở phía trên
   > Mức zoom tối thiểu khi đang ở chế độ 2D bằng với giá trị khi ta gọi hàm getZoom()
-  > Đọc thêm phần 3d objects để có thêm cái nhìn về các mode chuyển đổi
+  > Đọc mục 8 để có thêm cái nhìn về các mode chuyển đổi
 
-## 7. Di chuyển map
+## 7. Di chuyển camera 
 Cho phép di chuyển map đến một vị trí bất kỳ
 
 ```javascript
@@ -251,20 +255,20 @@ enum SwitchMode {
 ```
 - Chế độ mặc định là **Auto**
 - Auto3DTo2D:
-  - **Không** tự động chuyển chuyển từ chế độ 3D qua 2D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
-  - Khi map đang ở mức zoom >= 17, map ở chế độ 3D thì khi điều khiển zoom xuống zoom < 17, map sẽ tự động chuyển hoàn toàn về chế độ 2D.
+  - Tự động chuyển từ chế độ 3D sang 2D, khi điều khiển map từ mức zoom >= 17 về mức zoom  < 17
+  - Map vẫn giữ chế độ 2D khi điều map từ mức zoom < 17 sang mức zoom >= 17.
+  - Muốn chuyển sang chế độ 3D phải dùng hàm enable3dMode(true)
 - Auto2DTo3D:
   - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
-  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17.
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17. Muốn chuyển qua chế độ 2D, phải dùng hàm enable3dMode(false)
   - Khi map đang ở mức zoom >= 17, nếu map đang chế độ 2D, thì map vẫn có thể zoom về mức zoom < 17.
 - Auto:
   - Tự động chuyển chuyển từ chế độ 2D qua 3D khi điều khiển zoom từ mức zoom < 17 lên mức zoom >= 17.
   - Tự động chuyển từ chế độ 3D sang 2D khi điều khiển zoom từ mức zoom >= 17 về mức zoom < 17.
 - Manual:
-  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17. Map cũng không tự động chuyển về chế độ 3D khi zoom từ mức zoom 17 lên 18. 
-
-
-> Các chế độ trên chỉ hoạt động khi chế độ 3D được kích hoạt **enable3dMode(true)**
+  - Khi map đang ở mức zoom >= 17, nếu map đang ở chế độ 3D thì khi không cho phép điều khiển zoom xuống mức zoom < 17. 
+  - Map cũng không tự động chuyển về chế độ 3D khi zoom từ mức zoom 17 lên 18.
+  - Sử dụng hàm enable3dMode(boolean) khi muốn chuyển qua lại chế độ 2D và 3D.
 
  ## 9. Ghi chú
  Các kiểu dữ liệu **Point, LatLng, CameraPosition, SwitchMode, ControlOptions** là các kiểu dữ liệu của Map4D-SDK, muốn sử dụng được phải thông qua **module map4d**
