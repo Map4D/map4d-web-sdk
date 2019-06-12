@@ -63,6 +63,37 @@ Map4D SDK for Web, written in Javascript.
   </style>
   ```
 
+## Document references
+[1. Getting started](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/0-getting-started.md) 
+
+[2. Map user interaction](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/1-map-user-interaction.md) 
+
+[3. Type](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/2-type.md)
+
+[4. Map events](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/3-map-events.md)
+
+[5. Marker](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/4-marker.md)
+
+[6. Marker cluster](https://github.com/iotlinkadmin/map4d-web-sdk/tree/master/docs/vi/1.1)
+
+[7. Polyline](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/6-polyline.md)
+
+[8. Polygon](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/7-polygon.md)
+
+[9. Circle](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/8-circle.md)
+
+[10. 3D objects](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/9-3d-objects.md)
+
+[11. Tile area](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/10-tile-area.md)
+
+[12. Effect](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/11-effect-map.md)
+
+[13. LatLngBounds](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/12-lat-lng-bounds.md)
+
+[14. Map utils](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/13-map-utils.md)
+
+[15. Data layer](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/14-data-layer.md)
+
 License
 -------
 
