@@ -94,6 +94,8 @@ Map4D SDK for Web, written in Javascript.
 
 [15. Data layer](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/14-data-layer.md)
 
+[16. Leaflet Integrated](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.1/15-leaflet-integrated.md)
+
 License
 -------
 
