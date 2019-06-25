@@ -113,7 +113,7 @@ class MapObject {
         setCoordinates(coordinates: ILatLng[]): void
         setDraggable(draggable: boolean): void
         getTileCovers(zooms: number[], completion: Function): void //Lấy tất cả các tile mà object nằm trên 
-        getTransformedCoordinates(): LatLng[] //Lấy danh tin toạ độ của Extrude sau khi thực hiện biến đổi Extrude như Rotate, Scale 
+        getBoundsCoordinates(completion: Function): void //Lấy danh sách toạ độ tạo thành hình chân đế của object
   }
 ```
 Trên bản đồ có 2 kiểu 3D object
@@ -237,10 +237,9 @@ Khi biết được id đối tượng 3D có sẵn trên bản đồ ta sử d�
 - completion: callback function để trả kết quả về.
 
 ```javascript
-    getTransformedCoordinates(): LatLng[]
+    getBoundsCoordinates(completion: Function): void
 ```
-**getTransformedCoordinates** chỉ dùng cho extrude building nó sẽ trả về tất cả các tọa độ sau khi transformed.
-Mảng các tọa độ chúng ta truyền vào cho extrude building là danh sách tất cả tọa độ ban đầu. Trong MapObject còn có các thông số khác như bearing, scale... Tọa độ để vẽ lên extrude building là tọa độ sau khi biến đổi (áp dụng xoay và scale...). Hàm này dùng để lấy tất cả tọa độ sau khi biến đổi.
+**getBoundsCoordinates** trả về một danh sách các điểm tọa độ bao quanh Object. Tham số truyền vào là một hàm callback để lấy kết quả trả về.
 
 
 
