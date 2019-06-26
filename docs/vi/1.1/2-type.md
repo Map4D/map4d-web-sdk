@@ -135,7 +135,7 @@ declare module 'map4d' {
     setCoordinates(coordinates: ILatLng[]): void
     setDraggable(draggable: boolean): void
     getTileCovers(zooms: number[], completion: Function): void
-    getTransformedCoordinates(): LatLng[]
+    getBoundsCoordinates(completion: Function): void
   }
 
   class Icon {
