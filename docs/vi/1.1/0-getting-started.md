@@ -40,7 +40,7 @@
         controls :true,
         tilt: 0,
         controlOptions: map4d.ControlOptions.BOTTOM_RIGHT,
-        accessKey: "${access_key}"
+        accessKey: `${access_key}`
       }
     )
 </script>

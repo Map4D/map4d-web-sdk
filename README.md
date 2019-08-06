@@ -34,7 +34,7 @@ Map4D SDK for Web, written in Javascript.
         geolocate: true,
         controls :true,
         tilt: 0,        
-        accessKey: "98fd21346d83bee24dc734231f7609c9"
+        accessKey: `${your-key}`
       }
     )
   //set switch mode Auto for automatically switching between 2D & 3D
