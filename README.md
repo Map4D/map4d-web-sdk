@@ -4,6 +4,17 @@ Map4D SDK for Web, written in Javascript.
 
 [![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/sdk/map4dweb.png)](https://map4d.vn) 
 
+## Important Changelogs
+
+1. Version 1.2.0
+
+- Use api key for api request
+
+2. Version 1.3.1
+
+- Update location array order: [lat, lng] => [lng, lat]
+
+- Render POI on 2D mode
 
 ## Installation
 
@@ -29,7 +40,7 @@ Map4D SDK for Web, written in Javascript.
 <script>
   let map = new map4d.Map(document.getElementById("map"),
       {
-        center: [21.007651, 105.828042],
+        center: [105.828042, 21.007651],
         zoom: 17,
         geolocate: true,
         controls :true,
