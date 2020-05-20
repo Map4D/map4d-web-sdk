@@ -18,7 +18,8 @@ Map4D SDK for Web, written in Javascript.
 
 ## Installation
 
-1. Download map4dsdk from [here](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/sdk/map4dsdk@1.3.6.prod)
+1. Download map4dsdk from [here](https://github.com/map4d/map4d-web-sdk/blob/master/sdk/map4dsdk%401.3.8.prod.js)
+
 
 2. Add script to your website
 ```html
