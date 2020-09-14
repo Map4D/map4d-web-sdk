@@ -80,9 +80,11 @@
   bearing?: number,
   minZoom?: number,
   maxZoom?: number,
+  maxNativeZoom?: number,
   geolocate?: boolean,
   controls?: boolean,
-  controlOptions?: ControlOptions
+  controlOptions?: ControlOptions,
+  switchMode?: SwitchMode
 }
 
 enum ControlOptions {
@@ -96,10 +98,12 @@ enum ControlOptions {
 - center: vị trí khởi tạo trung tâm của map
 - zoom, tilt, bearing: mức zoom, độ nghiêng và góc xoay khởi tạo cho map
 - minZoom, maxZoom: giới hạn zoom của map có nghĩa mức zoom của map chỉ được nằm trong khoảng [minZoom, maxZoom]. Nếu không set thì giá trị mặc định sẽ là [0, 22]
+- maxNativeZoom: là giới hạn mức Zoom cao nhất của Tile mà map request từ server. Nếu không set thì giá trị mặc định là 19
 - geolocate: bật/tắt chức năng lấy vị trí hiện tại của người dùng, mặc định là tắt
 - accessKey: key để sử dụng map ([đăng ký key](http://map4d.vn))
 - controls: ẩn hiện bảng điều khiển, mặc định là ẩn
 - controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
+- switchMode: là chế độ chuyển mode của Map khi người dùng thực hiện các thao tác tác động đến Map như zoom, fly, move. Mục đích của switchMode là cho phép Map có tự động chuyển từ 2D sang 3D và ngược lại khi người dùng thực hiện các thao tác trên hay không. Để tìm hiểu kĩ hơn bạn có thể đọc phần tài liệu về SwitchMode ở mục **9**
 
 ![CocoaPods](https://raw.githubusercontent.com/iotlinkadmin/map4d-web-sdk/master/docs/resources/0-getting-started-1.png)
 
@@ -116,15 +120,19 @@ Như ví dụ trên thì sau khi cài đặt map như trên thì các mức zoom
 ## 6. Lấy các thông số của map.
 
 ```javascript
-getCamera(): CameraPosition
-
+  getCamera(): CameraPosition
 ```
 - getCamera: Cho phép lấy các thông số của map như độ nghiêng, độ xoay, điểm trung tâm, mức zoom hiện tại
 
 ```javascript
-  getMapUrl(): string
+  getCameraWithBounds(bounds: ILatLngBounds, padding?: PaddingOptions)
 ```
-- getMapUrl: trả về thông tin url hiện tại của map.
+- getCameraWithBounds: Cho phép lấy thông số camera của map tương ứng với giá trị ILatLngBounds và padding mà người dùng truyền vào.
+
+```javascript
+  getTileUrl(): string
+```
+- getTileUrl: trả về thông tin url của tile hiện tại
 
 ```javascript
   getBounds(paddingOptions?: PaddingOptions): LatLngBounds
@@ -141,12 +149,15 @@ getCamera(): CameraPosition
 ```
 - getMaxZoom: trả về thông tin mức zoom tối đa của map.
 
+```javascript
+  getMaxNativeZoom(): number
+```
+- getMaxNativeZoom: trả về mức zoom tối đa của tile có thể request đến server
 
 ```javascript
   getWeather(): Weather
 ```
 - getWeather: trả về thông tin hiệu ứng thời gian của map
-
 
 ```javascript
   is3dMode(): boolean
@@ -180,7 +191,29 @@ getCamera(): CameraPosition
   > Mức zoom tối thiểu khi đang ở chế độ 2D bằng với giá trị khi ta gọi hàm getZoom()
   > Đọc mục 8 để có thêm cái nhìn về các mode chuyển đổi
 
-## 7. Di chuyển camera 
+## 7. Set các thông số cho Map
+
+```javascript
+  enable3dMode(enabled: boolean): void
+```
+- enable3dMode: Set chế độ 2D cho map nếu giá trị enable = false, ngược lại set chế độ 3D cho map nếu giá trị enable = true
+
+```javascript
+  setTileUrl(mapUrl: string, is3dMode: boolean): void
+```
+- setTileUrl: Set thông tin url của tile hiện tại
+
+```javascript
+  setTileUrl(mapUrl: string, is3dMode: boolean): void
+```
+- setTileUrl: Set thông tin url của tile hiện tại
+
+```javascript
+  setMaxNativeZoom(maxNativeZoom: number): void
+```
+- setMaxNativeZoom: set mức zoom tối đa của tile có thể request đến server cho dù mức Zoom hiện tại lớn hơn. Ví dụ: khi setMaxNativeZoom(18) thì cho dù mức zoom hiện tại của Map là 19 hay lớn hơn 19 thì tất cả các tile ở các mức zoom này đều request tile ở mức Zoom 18.
+
+## 8. Di chuyển camera 
 Cho phép di chuyển map đến một vị trí bất kỳ
 
 ```javascript
@@ -238,7 +271,7 @@ ICameraPosition = CameraPosition | {target: ILatLng, tilt: number, bearing: numb
   - padding: tùy chọn, mặc định là 0, cho phép tùy chỉnh padding với bounds
   - animationOptions: tùy chọn, mặc định là null. Cho phép tùy biến chuyển động.
 
-## 8. Các Chế độ chuyển đổi mode 2D và 3D
+## 9. Các Chế độ chuyển đổi mode 2D và 3D
 Cho phép thay đổi chế độ chuyển 2D & 3D của map. Có 4 chế độ:
 
 ```javascript
@@ -270,7 +303,7 @@ enum SwitchMode {
   - Map cũng không tự động chuyển về chế độ 3D khi zoom từ mức zoom 17 lên 18.
   - Sử dụng hàm enable3dMode(boolean) khi muốn chuyển qua lại chế độ 2D và 3D.
 
- ## 9. Ghi chú
+ ## 10. Ghi chú
  Các kiểu dữ liệu **Point, LatLng, CameraPosition, SwitchMode, ControlOptions** là các kiểu dữ liệu của Map4D-SDK, muốn sử dụng được phải thông qua **module map4d**
  Ví dụ:
  ```javascript

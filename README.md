@@ -16,7 +16,7 @@ Map4D SDK for Web, written in Javascript.
 
 - Render POI on 2D mode
 
-3. Version 1.4.0
+3. Version 1.4
 
 - Render Tile Overlay
 
@@ -82,43 +82,43 @@ Map4D SDK for Web, written in Javascript.
   ```
 
 ## Document references
-[1. Getting started](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/0-getting-started.md) 
+[1. Getting started](docs/vi/1.4/0-getting-started.md) 
 
-[2. Map user interaction](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/1-map-user-interaction.md) 
+[2. Map user interaction](docs/vi/1.4/1-map-user-interaction.md) 
 
-[3. Type](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/2-type.md)
+[3. Type](docs/vi/1.4/2-type.md)
 
-[4. Map events](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/3-map-events.md)
+[4. Map events](docs/vi/1.4/3-map-events.md)
 
-[5. Marker](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/4-marker.md)
+[5. Marker](docs/vi/1.4/4-marker.md)
 
 [6. Marker cluster](https://github.com/iotlinkadmin/map4d-web-sdk/tree/master/docs/vi/1.4/5-marker-cluster.md)
 
-[7. Polyline](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/6-polyline.md)
+[7. Polyline](docs/vi/1.4/6-polyline.md)
 
-[8. Polygon](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/7-polygon.md)
+[8. Polygon](docs/vi/1.4/7-polygon.md)
 
-[9. Circle](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/8-circle.md)
+[9. Circle](docs/vi/1.4/8-circle.md)
 
-[10. 3D objects](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/9-3d-objects.md)
+[10. 3D objects](docs/vi/1.4/9-3d-objects.md)
 
-[11. Tile area](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/10-tile-area.md)
+[11. Tile area](docs/vi/1.4/10-tile-area.md)
 
-[12. Effect](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/11-effect-map.md)
+[12. Effect](docs/vi/1.4/11-effect-map.md)
 
-[13. LatLngBounds](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/12-lat-lng-bounds.md)
+[13. LatLngBounds](docs/vi/1.4/12-lat-lng-bounds.md)
 
-[14. Map utils](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/13-map-utils.md)
+[14. Map utils](docs/vi/1.4/13-map-utils.md)
 
-[15. Data layer](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/14-data-layer.md)
+[15. Data layer](docs/vi/1.4/14-data-layer.md)
 
-[16. Leaflet Integrated](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/15-leaflet-integrated.md)
+[16. Leaflet Integrated](docs/vi/1.4/15-leaflet-integrated.md)
 
-[17. Place](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/16-place.md)
+[17. Place](docs/vi/1.4/16-place.md)
 
-[18. Tile Overlay](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/17-tile-overlay.md)
+[18. Tile Overlay](docs/vi/1.4/17-tile-overlay.md)
 
-[19. Building Overlay](https://github.com/iotlinkadmin/map4d-web-sdk/blob/master/docs/vi/1.4/18-building-overlay.md)
+[19. Building Overlay](docs/vi/1.4/18-building-overlay.md)
 
 License
 -------

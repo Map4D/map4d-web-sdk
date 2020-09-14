@@ -198,7 +198,48 @@ let features = this.map.data.addGeoJson(geojsonString)
 features.forEach(feature => this.map.data.remove(feature))
 ```
 
-## 3. Thêm sự kiện trên data layer
+## 3. Xóa tất cả các feature khỏi data layer
+
+Để xóa tất cả các feature khỏi data layer chúng ta sử dụng hàm **clear**
+
+```javascript
+this.map.data.clear()
+```
+
+## 4. Giá trị minZoom và maxZoom cho data layer
+
+Chúng ta có thể set giá trị minZoom và maxZoom cho data layer:
+* Giá trị minZoom quy định mức zoom nhỏ nhất mà data layer được phép hiện thị. Để set minZoom chúng ta sử dụng hàm **setMinZoom**
+* Giá trị maxZoom quy định mức zoom lớn nhất mà data layer cho phép được hiển thị. Để set maxZoom chúng ta sử dụng hàm **setMaxZoom**
+
+```javascript
+let geometry = new map4d.Data.LineString([[106.62574768066405, 10.83802680397086],
+      [106.6278076171875, 10.814421958289003], [106.66248321533203, 10.814421958289003]])
+let properties = {stroke: "#ff0000"}
+// Thêm feature vào data layer
+let feature = this.map.data.add({id: 1, geometry: geometry, properties: properties})
+// Xóa feature khỏi data layer
+this.map.data.remove(feature)
+
+// Thêm 1 danh sách features vào data layer
+let features = this.map.data.addGeoJson(geojsonString)
+
+// Set giá trị minZoom và maxZoom cho data layer
+this.map.data.setMinZoom(14.0)
+this.map.data.setMaxZoom(17.0)
+```
+
+Ngoài ra chúng ta có thể lấy giá trị minZoom và giá trị maxZoom của data layer thông qua hàm **getMinZoom** và **getMaxZoom**
+
+```javascript
+// Lấy giá trị minZoom của data layer
+let minZoom = this.map.data.getMinZoom()
+
+// Lấy giá trị maxZoom của data layer
+let maxZoom = this.map.data.getMaxZoom()
+```
+
+## 5. Thêm sự kiện trên data layer
 
 Sự kiện click phát sinh khi người dùng click vào feature trên data layer
 
