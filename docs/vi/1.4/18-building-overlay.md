@@ -1,5 +1,6 @@
 # Building Overlay
-Lớp Building Overlay cho phép người dùng thêm một layer vẽ thêm các Building cùng với các Building có sẵn của Map SDK. Nó chỉ có tác dụng trong chế độ 3D
+
+Lớp BuildingOverlay cho phép người dùng thêm một layer vẽ thêm các Building cùng với các Building có sẵn của Map SDK. Nó chỉ có tác dụng trong chế độ 3D của Map
 
 ## 1. BuildingOverlay & BuildingOverlayOption
 
@@ -19,13 +20,14 @@ class BuildingOverlay {
 ```
 
 ## 2. Tạo BuildingOverlay
+
 Trước tiên chúng ta cần tạo buildingOverlayOption với hàm getUrl, giá trị của minZoom và maxZoom như phía dưới
 
 ***Note: Giá trị của minZoom nếu set thì phải lớn hơn hoặc bằng 17, vì BuildingOverlay chỉ sử dụng trong chế độ 3D của Map***
 
 ```javascript
 // Tạo buildingOverlayOption
-let buildingOverlayOption: map4d.BuildingOverlayOption = {
+let buildingOverlayOptions: map4d.BuildingOverlayOptions = {
   getUrl: (x, y, z) => {
     return `https://your-domain/api/${z}/${x}/${y}`
   },
@@ -38,7 +40,7 @@ Sau đó chúng ta sẽ tạo BuildingOverlay như sau:
 
 ```javascript
 // Tạo BuildingOverlay
-let buildingOverlay = new map4d.BuildingOverlay(buildingOverlayOption)
+let buildingOverlay = new map4d.BuildingOverlay(buildingOverlayOptions)
 // Set Building Overlay vào map cần vẽ
 buildingOverlay.setMap(this.map)
 ```
