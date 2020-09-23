@@ -22,6 +22,8 @@ Map4D SDK for Web, written in Javascript.
 
 - Render Building Overlay
 
+- Render POI Overlay
+
 ## Installation
 
 1. Download map4dsdk from [here](https://github.com/map4d/map4d-web-sdk/blob/master/sdk/map4dsdk%401.4.0.prod.js)
@@ -119,6 +121,8 @@ Map4D SDK for Web, written in Javascript.
 [18. Tile Overlay](docs/vi/1.4/17-tile-overlay.md)
 
 [19. Building Overlay](docs/vi/1.4/18-building-overlay.md)
+
+[20. POI Overlay](docs/vi/1.4/19-poi-overlay.md)
 
 License
 -------
