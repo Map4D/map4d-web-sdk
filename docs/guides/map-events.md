@@ -1,6 +1,6 @@
 # Map events
 
-Map4D Web SDK cung cấp các sự kiện của map hay tương tác của người dùng giúp cho nhà phát triển có thể lắng nghe và xử lý
+Map4D Web SDK cung cấp các sự kiện của map hay tương tác của người dùng giúp cho nhà phát triển có thể lắng nghe và xử lý.
 
 - cameraWillChange: Được gọi khi một trong các thông số camera (tâm, góc nghiêng, góc quay, mức zoom) của map chuẩn bị thay đổi.
 - cameraChanging: Được gọi khi một trong các thông số camera (tâm, góc nghiêng, góc quay, mức zoom) của map đang thay đổi.
@@ -21,4 +21,27 @@ Map4D Web SDK cung cấp các sự kiện của map hay tương tác của ngư�
 - longClick: Được gọi khi giữ chuột trái trong 1 khoảng thời gian trên bản đồ
 - boundsChanged: Được gọi khi viewport đã thay đổi
 
-## 
+## Add events
+
+```JavaScript
+<script>
+  function initMap() {
+    let options = {
+      center: {lat: 16.072163491469226, lng: 108.22690536081757},
+      zoom: 15,
+    }
+    let map = new map4d.Map(document.getElementById("map"), options)
+    map.addListener(
+      "click",
+      (args) => {
+        let marker = new map4d.Marker({
+          position: args.location
+        })
+        marker.setMap(map)
+      }
+    )
+  }
+</script>
+```
+
+<iframe src="./html/map-events.html" class="is-fullwidth" height="420px"></iframe>

@@ -4,7 +4,7 @@ Map4D Web SDK cho phép bạn tùy chỉnh bản đồ với nội dung để hi
 
 ## Hello, World
 
-<iframe src="./html/getting-started.html" class="is-fullwidth" height="270px"></iframe>
+<iframe src="./html/overview.html" class="is-fullwidth" height="270px"></iframe>
  
 ```HTML
 <!DOCTYPE html>
@@ -63,7 +63,6 @@ map = new map4d.Map(document.getElementById("map"), options)
   maxZoom?: number,
   maxNativeZoom?: number,
   geolocate?: boolean,
-  accessKey?: string
   controls?: boolean,
   controlOptions?: ControlOptions,
   tilt?: number,
@@ -78,7 +77,6 @@ map = new map4d.Map(document.getElementById("map"), options)
 - minZoom, maxZoom: giới hạn zoom của map có nghĩa mức zoom của map chỉ được nằm trong khoảng [minZoom, maxZoom]. Nếu không set thì giá trị mặc định sẽ là [0, 22]
 - maxNativeZoom: là giới hạn mức Zoom cao nhất của Tile mà map request từ server. Nếu không set thì giá trị mặc định là 19
 - geolocate: bật/tắt chức năng lấy vị trí hiện tại của người dùng, mặc định là tắt
-- accessKey: key để sử dụng map (đăng ký key)
 - controls: ẩn hiện bảng điều khiển, mặc định là ẩn
 - controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
 - restrictionBounds: giới hạn vùng hiển thị, di chuyển của map
