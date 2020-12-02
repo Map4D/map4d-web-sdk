@@ -15,7 +15,8 @@ Map4D Web SDK cho phép bạn tùy chỉnh bản đồ với nội dung để hi
     function initMap() {
       let options = {
         center: {lat: 16.072163491469226, lng: 108.22690536081757},
-        zoom: 15
+        zoom: 15,
+        controls: true
       }
       let map = new map4d.Map(document.getElementById("map"), options)
     }
@@ -49,13 +50,13 @@ Trong đó:
 
 ### The Map Object
 
-```JavaScript
+```js
 map = new map4d.Map(document.getElementById("map"), options)
 ```
 
 ### Map Options
 
-```JavaScript
+```js
 {
   center: ILatLng,
   zoom?: number,

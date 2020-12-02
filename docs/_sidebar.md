@@ -1,4 +1,4 @@
-- [Overview](guides/overview.md)
+- [Overview](/)
 - [Using Typescript](guides/using-typescript.md)
 
 - Interacting with the Map
