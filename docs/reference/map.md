@@ -1,1 +1,3 @@
 # Map reference
+
+## Map class

@@ -69,10 +69,10 @@ event.remove()
 
 | No | Event                                                                                                                                             | args                                                           |
 |:--:|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-|  1 | - cameraWillChange<br>- cameraChanging<br>- idle                                                                                                  | { `camera`: [CameraPosition](reference/map) }                 |
+|  1 | - cameraWillChange<br>- cameraChanging<br>- idle                                                                                                  | { `camera`: [CameraPosition](reference/map) }                  |
 |  2 | - hover<br>- click<br>- rightClick<br>- dblClick<br>- longClick<br>- dragStart<br>- drag<br>- dragEnd<br>- mouseMove<br>- mouseOut<br>- mouseOver | {<br>&nbsp;&nbsp;&nbsp;&nbsp;`location`: [LatLng](reference/coordinates?id=latlng),<br>&nbsp;&nbsp;&nbsp;&nbsp;`pixel`: [Point](reference/coordinates?id=point),<br>&nbsp;&nbsp;&nbsp;&nbsp;`xa`: MouseEvent<br>} |
-| 3  | - modeChanged                                                                                                                                     | { is3DMode: boolean }                                         |
-| 4  | - tilesLoaded<br>- boundsChanged                                                                                                                  | `null`                                                           |
+| 3  | - modeChanged                                                                                                                                     | { `is3DMode`: boolean }                                        |
+| 4  | - tilesLoaded<br>- boundsChanged                                                                                                                  | `null`                                                         |
 
 ### Thay đổi EventOptions ở runtime
 
