@@ -43,15 +43,15 @@ let event = map.addListener("event_name",
     // action ...
   },
   {
+    location: true
+    mappoi: true
+    mapbuilding: true
     marker: true
     polygon: true
     polyline: true
     circle: true
     poi: true
     building: true
-    location: true
-    mappoi: true
-    mapbuilding: true
   })
 ```
 Chú ý:
@@ -70,9 +70,11 @@ event.remove()
 | No | Event                                                                                                                                             | args                                                           |
 |:--:|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 |  1 | - cameraWillChange<br>- cameraChanging<br>- idle                                                                                                  | { `camera`: [CameraPosition](reference/map) }                  |
-|  2 | - hover<br>- click<br>- rightClick<br>- dblClick<br>- longClick<br>- dragStart<br>- drag<br>- dragEnd<br>- mouseMove<br>- mouseOut<br>- mouseOver | {<br>&nbsp;&nbsp;&nbsp;&nbsp;`location`: [LatLng](reference/coordinates?id=latlng),<br>&nbsp;&nbsp;&nbsp;&nbsp;`pixel`: [Point](reference/coordinates?id=point),<br>&nbsp;&nbsp;&nbsp;&nbsp;`xa`: MouseEvent<br>} |
+|  2 | - hover<br>- click *coordinate*<br>- rightClick<br>- dblClick<br>- longClick<br>- dragStart<br>- drag<br>- dragEnd<br>- mouseMove<br>- mouseOut<br>- mouseOver | {<br>&nbsp;&nbsp;&nbsp;&nbsp;`location`: [LatLng](reference/coordinates?id=latlng),<br>&nbsp;&nbsp;&nbsp;&nbsp;`pixel`: [Point](reference/coordinates?id=point),<br>&nbsp;&nbsp;&nbsp;&nbsp;`xa`: MouseEvent<br>} |
 | 3  | - modeChanged                                                                                                                                     | { `is3DMode`: boolean }                                        |
-| 4  | - tilesLoaded<br>- boundsChanged                                                                                                                  | `null`                                                         |
+| 4  | - tilesLoaded<br>- boundsChanged                                                                                                                  | `none`                                                         |
+| 5  | - click *mappoi*                                                                                                                                  |{<br>&nbsp;&nbsp;&nbsp;&nbsp;`poi`: { `id`: string, `name`: string, `location`: [LatLng](reference/coordinates?id=latlng), `type`: string }<br>&nbsp;&nbsp;&nbsp;&nbsp;`location`: [LatLng](reference/coordinates?id=latlng),<br>&nbsp;&nbsp;&nbsp;&nbsp;`pixel`: [Point](reference/coordinates?id=point),<br>&nbsp;&nbsp;&nbsp;&nbsp;`xa`: MouseEvent<br>} |
+| 6  | - click *mapbuilding*                                                                                                                             |{<br>&nbsp;&nbsp;&nbsp;&nbsp;`building`: { `id`: string, `name`: string, `location`: [LatLng](reference/coordinates?id=latlng) }<br>&nbsp;&nbsp;&nbsp;&nbsp;`location`: [LatLng](reference/coordinates?id=latlng),<br>&nbsp;&nbsp;&nbsp;&nbsp;`pixel`: [Point](reference/coordinates?id=point),<br>&nbsp;&nbsp;&nbsp;&nbsp;`xa`: MouseEvent<br>} |
 
 ### Thay đổi EventOptions ở runtime
 

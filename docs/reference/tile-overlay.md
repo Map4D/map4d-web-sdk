@@ -6,6 +6,8 @@
 
 **Constructor** 
 
+Tạo TileOverlay với các options được chỉ định
+
 ```js
 TileOverlay(options)
 ```
@@ -13,18 +15,15 @@ TileOverlay(options)
 - Parameters:
   - options: [TileOverlayOptions](/reference/tile-overlay?id=tileoverlayoptions-interface) *required*
 
-
-Tạo TileOverlay với các options được chỉ định
-
 **Methods**
 
 | Name           | Parameters                              | Return Value | Description                                                                            |
 |----------------|-----------------------------------------|--------------|----------------------------------------------------------------------------------------|
 | **setMap**     | map: [Map](/reference/map?id=map-class) | `none`       | Hiển thị tile overlay lên map, nếu set map là null thì tile overlay sẽ bị xóa khỏi map |
 | **setVisible** | visibility: boolean                     | `none`       | Ẩn/hiện tile overlay trên map                                                          |
-| **isVisible**  | `none`                                  | boolean      |                                                                                        |
+| **isVisible**  | `none`                                  | boolean      | Get trạng thái ẩn/hiện của overlay                                                     |
 | **setZIndex**  | zIndex: number                          | `none`       | Set giá trị zIndex                                                                     |
-| **getZIndex**  | `none`                                  | number       |                                                                                        |
+| **getZIndex**  | `none`                                  | number       | Get giá trị zIndex hiện tại của overlay                                                |
 
 
 ## TileOverlayOptions interface

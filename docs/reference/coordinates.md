@@ -6,6 +6,8 @@
 
 ## LatLngBounds
 
+## ILatLngBounds
+
 ## Point
 
 ## IPoint
