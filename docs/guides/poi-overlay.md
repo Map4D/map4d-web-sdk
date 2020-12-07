@@ -1,7 +1,6 @@
 # POI Overlay
 
-POI overlay là một loại overlay cho phép người dùng hiển thị các POI từ nhiều nguồn khác nhau lên bản đồ.
-
+POI overlay là một loại overlay cho phép người dùng hiển thị các POI từ nhiều nguồn khác nhau lên bản đồ.  
 Các POI của POI overlay được ưu tiên hiển thị so với POI của Map4D và chỉ hiển thị ở chế độ 2D.
 
 ## Add POI overlay
@@ -48,8 +47,7 @@ overlay.setMap(null)
 
 ### Ẩn/Hiện POI Overlay
 
-Gọi hàm `setVisible(boolean)` để ẩn/hiện POI overlay.
-
+Gọi hàm `setVisible(boolean)` để ẩn/hiện POI overlay.  
 Chú ý: Mặc dù POI overlay không hiển thị nhưng quá trình tải các POI vẫn diễn ra
 
 ```js

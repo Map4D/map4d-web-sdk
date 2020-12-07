@@ -1,7 +1,6 @@
 # Building Overlay
 
-Building overlay là một loại overlay cho phép người dùng hiển thị các building từ nhiều nguồn khác nhau lên bản đồ, kết hợp với building sẵn có của Map4D
-
+Building overlay là một loại overlay cho phép người dùng hiển thị các building từ nhiều nguồn khác nhau lên bản đồ, kết hợp với building sẵn có của Map4D.  
 Building overlay chỉ hiển thị ở chế độ 3D.
 
 ## Add Building overlay
@@ -47,8 +46,7 @@ overlay.setMap(null)
 
 ### Ẩn/Hiện Building Overlay
 
-Gọi hàm `setVisible(boolean)` để ẩn/hiện building overlay.
-
+Gọi hàm `setVisible(boolean)` để ẩn/hiện building overlay.  
 Chú ý: Mặc dù building overlay không hiển thị nhưng quá trình tải các building vẫn diễn ra
 
 ```js

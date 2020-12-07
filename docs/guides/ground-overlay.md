@@ -1,7 +1,6 @@
 # Ground Overlay
 
-Ground Overlay cho phép người dùng thực hiện việc thay thế tile ở một khu vực nào đó bằng tile từ những nguồn khác
-
+Ground Overlay cho phép người dùng thực hiện việc thay thế tile ở một khu vực nào đó bằng tile từ những nguồn khác.  
 Ground Overlay tương tự với Tile Overlay nhưng cho phép người dùng quy định 1 khu vực cụ thể gắn với kinh độ/vĩ độ, ngoài ra con cho phép người dùng loại bỏ việc hiển thị tile và các đối tượng thuộc tile của Map4D SDK
 
 <iframe src="./html/ground-overlay.html" style="min-width: 900px;" height="600px"></iframe>
@@ -59,8 +58,7 @@ overlay.setZIndex(10)
 
 ### Ẩn/Hiện Ground overlay
 
-Gọi hàm `setVisible(boolean)` để ẩn/hiện ground overlay.
-
+Gọi hàm `setVisible(boolean)` để ẩn/hiện ground overlay.  
 Chú ý:
 - Mặc dù ground overlay không hiển thị nhưng quá trình tải các tile vẫn diễn ra khi kéo map đến khu vực quy định cho ground overlay
 - Trong trường hợp set `override` là `true` nhưng lại `setVisible` là `false` thì ground không được hiển thị và khu vực đó cũng không hề hiển thị dữ liệu của Map4D

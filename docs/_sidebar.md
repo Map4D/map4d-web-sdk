@@ -5,7 +5,7 @@
   - [Map Options](guides/map-options.md)
   - [Controls](guides/controls.md)
   - [Events](guides/map-events.md)
-  - [Effect](guides/effect.md)
+  - [Effect](guides/map-effects.md)
 
 - Drawing on the Map
   - [Marker](guides/marker.md)

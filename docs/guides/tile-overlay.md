@@ -55,8 +55,7 @@ overlay.setZIndex(10)
 
 ### Ẩn/Hiện Tile Overlay
 
-Gọi hàm `setVisible(boolean)` để ẩn/hiện tile overlay.
-
+Gọi hàm `setVisible(boolean)` để ẩn/hiện tile overlay.  
 Chú ý: Mặc dù tile overlay không hiển thị nhưng quá trình tải các tile vẫn diễn ra
 
 ```js
