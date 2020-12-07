@@ -1,4 +1,4 @@
-# Tile Overlay
+# Tile Overlay References
 
 ## TileOverlay class
 

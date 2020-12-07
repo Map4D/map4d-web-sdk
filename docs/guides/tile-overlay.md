@@ -8,7 +8,7 @@ Tile Overlay là một loại overlay cho phép người dùng hiển thị các
 
 Để thêm 1 tile overlay vào map cần tạo mới 1 đối tượng của lớp [TileOverlay](reference/tile-overlay?id=tileoverlay-class) sau đó set `map` cho tile overlay đó.
 
-Hàm khởi tạo của lớp **TileOverlay** nhận vào một đối tượng [TileOverlayOptions](reference/tile-overlay?id=tileoverlayoptions-interface) có các tham số như sau:
+Hàm khởi tạo của lớp [TileOverlay](reference/tile-overlay?id=tileoverlay-class) nhận vào một đối tượng [TileOverlayOptions](reference/tile-overlay?id=tileoverlayoptions-interface) có các tham số như sau:
 
 | No | Property | Type     | Requied | Description                                                                             | Example                                                                                                     |
 |:--:|----------|----------|:-------:|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -56,6 +56,7 @@ overlay.setZIndex(10)
 ### Ẩn/Hiện Tile Overlay
 
 Gọi hàm `setVisible(boolean)` để ẩn/hiện tile overlay.
+
 Chú ý: Mặc dù tile overlay không hiển thị nhưng quá trình tải các tile vẫn diễn ra
 
 ```js

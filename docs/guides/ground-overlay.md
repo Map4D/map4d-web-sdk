@@ -10,7 +10,7 @@ Ground Overlay tương tự với Tile Overlay nhưng cho phép người dùng q
 
 Để thêm 1 ground overlay vào map cần tạo mới 1 đối tượng [GroundOverlay](/reference/ground-overlay?id=groundoverlay-class) và set `map` cho ground overlay đó
 
-Hàm khởi tạo của lớp **GroundOverlay** nhận vào 1 đối tượng [GroundOverlayOptions](/reference/ground-overlay?id=groundoverlayoptions-interface) như sau:
+Hàm khởi tạo của lớp [GroundOverlay](/reference/ground-overlay?id=groundoverlay-class) nhận vào 1 đối tượng [GroundOverlayOptions](/reference/ground-overlay?id=groundoverlayoptions-interface) như sau:
 
 | No | Property | Type | Requied | Default Value | Description | Example |
 |:-:|-|-|:-:|:-:|-|-|
@@ -60,6 +60,7 @@ overlay.setZIndex(10)
 ### Ẩn/Hiện Ground overlay
 
 Gọi hàm `setVisible(boolean)` để ẩn/hiện ground overlay.
+
 Chú ý:
 - Mặc dù ground overlay không hiển thị nhưng quá trình tải các tile vẫn diễn ra khi kéo map đến khu vực quy định cho ground overlay
 - Trong trường hợp set `override` là `true` nhưng lại `setVisible` là `false` thì ground không được hiển thị và khu vực đó cũng không hề hiển thị dữ liệu của Map4D
