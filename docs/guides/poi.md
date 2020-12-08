@@ -3,7 +3,7 @@
 Hiện tại trên bản đồ đã có những điểm đánh dấu địa điểm có sẵn (như địa danh công cộng, quán cà phê, nhà hàng, bến xe, ...)
 và chúng chỉ hiển thị khi bản đồ ở chế độ 2D. Khi bạn cần một đối tượng để đánh dấu một địa điểm trên bản đồ tương tự như
 những điểm có sẵn đó thì bạn có thể dùng lớp **map4d.POI**. Các đối tượng **map4d.POI** bạn thêm vào bản đồ có thể hiện thị
-ở cả 2 chế độ 2D và 3D.
+ở **cả 2 chế độ 2D và 3D**.
 
 ### 1. Thêm một POI
 
@@ -28,7 +28,7 @@ interface POIOptions {
 }
 ```
 
-Các thuộc tính của **Marker Options** :
+Các thuộc tính của **POIOptions** :
 - **position** (bắt buộc): chỉ định một **ILatLng** để xác định vị trí ban đầu của POI.
 - **title** (tùy chọn): chỉ định tiêu đề của POI. Tiêu đề sẽ hiển thị thông tin của POI mà bạn muốn hiển thị cho người dùng.
 - **subtitle** (tùy chọn): chỉ định thông tin mô tả của POI.
@@ -85,40 +85,40 @@ let isPOIsEnabled = map.isPOIsEnabled()
 ### 4. Hiển thị POI theo filter
 
 Đôi lúc bạn không muốn hiển thị tất cả các POI mặc định của bản đồ mà chỉ muốn hiển thị theo một số type mà bạn muốn.
-Phương thức **setFilterPlaces()** của lớp **Map** sẽ giúp bạn thực hiện điều đó. Bạn cần truyền một mảng string chứa các
+Phương thức **setFilterPOIs()** của lớp **Map** sẽ giúp bạn thực hiện điều đó. Bạn cần truyền một mảng string chứa các
 **type** mà bạn muốn hiển thị trên bản đồ (các **type** này bạn có thể xem lại ở thuộc tính **type** của **POIOptions**
 ở mục **1**).
 
 Ví dụ: Để cho phép bản đồ chỉ hiển thị những POI có type là **cafe**, **bank** và **atm**
 
 ```javascript
-map.setFilterPlaces(["cafe", "bank", "atm"])
+map.setFilterPOIs(["cafe", "bank", "atm"])
 ```
 
-Nếu bạn gọi phương thức **setFilterPlaces()** nhiều lần thì mảng danh sách mà bạn set cuối cùng sẽ được filter.
+Nếu bạn gọi phương thức **setFilterPOIs()** nhiều lần thì mảng danh sách mà bạn set cuối cùng sẽ được filter.
 
-Để hiển thị lại tất cả các POI mặc định của bản đồ mà không filter thì bạn có thể gọi lại phương thức **setFilterPlaces()**
+Để hiển thị lại tất cả các POI mặc định của bản đồ mà không filter thì bạn có thể gọi lại phương thức **setFilterPOIs()**
 với tham số truyền vào là **null** hoặc một một mảng rỗng ([])
 
 Ví dụ:
 
 ```javascript
-this.map.setFilterPlaces(null)
+this.map.setFilterPOIs(null)
 ``` 
 
 hoặc
 
 ```javascript
-this.map.setFilterPlaces([])
+this.map.setFilterPOIs([])
 ```
 
-Để kiểm tra các **type** nào đang được filter bạn có thể sử dụng phương thức **getFilterPlaces()** của lớp Map. Phương
+Để kiểm tra các **type** nào đang được filter bạn có thể sử dụng phương thức **getFilterPOIs()** của lớp Map. Phương
 thức này sẽ trả về một mảng string chứa các **type**
 
 Ví dụ:
 
 ```javascript
-let filterTypes = map.getFilterPlaces()
+let filterTypes = map.getFilterPOIs()
 ```
 
 ### 5. Các sự kiện trên POI
