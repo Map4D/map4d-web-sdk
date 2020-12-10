@@ -48,7 +48,7 @@ sẽ không có tác dụng.
 
 Ví dụ sau đây sẽ thêm một Polygon vào bản đồ:
 
-<iframe src="//jsfiddle.net/duydung2007/wbdxe4av/8/embedded/" style="min-width: 914px;" height="490px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/wbdxe4av/embedded/" style="min-width: 914px;" height="490px"></iframe>
 
 ### 2. Xóa Polygon khỏi bản đồ
 
@@ -68,14 +68,14 @@ Với mảng đầu tiên chứa các tọa độ của để tạo Polygon, cá
 
 Ví dụ sau đây sẽ tạo một Polygon với lỗ ở bên trong:
 
-<iframe src="//jsfiddle.net/duydung2007/cmgs6k03/8/embedded/" style="min-width: 914px;" height="620px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/cmgs6k03/embedded/" style="min-width: 914px;" height="620px"></iframe>
 
 ### 4. Tạo một Polygon có thể kéo được trên bản đồ
 
 Bạn có thể cho người dùng kéo Polygon từ vị trí này đến vị trí khác trên bản đồ bằng cách chỉ định thuộc tính **draggable**
 bằng **true** ở trong **PolygonOptions** khi tạo **Polygon**
 
-<iframe src="//jsfiddle.net/duydung2007/m1scuhnv/5/embedded/" style="min-width: 914px;" height="490px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/m1scuhnv/embedded/" style="min-width: 914px;" height="490px"></iframe>
 
 Ngoài ra bạn có thể gọi phương thức **setDraggable()** của đối tượng **Polygon** và truyền vào tham số **true** để bật
 tính năng draggable của Polygon hoặc truyền vào tham số **false** để tắt tính năng draggable.

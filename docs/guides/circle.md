@@ -47,7 +47,7 @@ sẽ không có tác dụng.
 
 Ví dụ sau đây sẽ thêm một Circle vào bản đồ:
 
-<iframe src="//jsfiddle.net/duydung2007/q7nxey1t/16/embedded/" style="min-width: 914px;" height="390px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/q7nxey1t/embedded/" style="min-width: 914px;" height="390px"></iframe>
 
 ### 2. Xóa Circle khỏi bản đồ
 
@@ -65,7 +65,7 @@ sau đó bạn gán **circle** bằng **null**.
 Bạn có thể cho người dùng kéo Circle từ vị trí này đến vị trí khác trên bản đồ bằng cách chỉ định thuộc tính **draggable**
 bằng **true** ở trong **CircleOptions** khi tạo **Circle**
 
-<iframe src="//jsfiddle.net/duydung2007/hw23sub5/2/embedded/" style="min-width: 914px;" height="360px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/hw23sub5/embedded/" style="min-width: 914px;" height="360px"></iframe>
 
 Ngoài ra bạn có thể gọi phương thức **setDraggable()** của đối tượng **Circle** và truyền vào tham số **true** để bật
 tính năng draggable của Circle hoặc truyền vào tham số **false** để tắt tính năng draggable.
