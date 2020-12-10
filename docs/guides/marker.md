@@ -35,7 +35,7 @@ Các thuộc tính của **Marker Options** :
 - **anchor** (tùy chọn) : chỉ định một **IPoint** để xác định điểm neo cho Marker. Giá trị mặc định là **{x: 0.5, y: 1.0}**
 - **labelAnchor** (tùy chọn) : chỉ định một **IPoint** để xác định điểm neo của Label so với Marker. Giá trị mặc định là **{x: 0.5, y: 0.5}**
 - **icon** (tùy chọn) : tùy chỉnh icon cho Marker. Có thể truyền vào là một **Icon** hoặc là một **Url**
-- **elevation** (tùy chọn) : chỉ định độ cao của Marker so với mực nước biển. Giá trị mặc định là **0**
+- **elevation** (tùy chọn) : chỉ định độ cao của Marker so với mực nước biển, đơn vị là mét. Giá trị mặc định là **0**
 - **rotation** (tùy chọn) : chỉ định góc quay của Marker theo đơn vị là Độ. Giá trị mặc định là **0**
 - **title** (tùy chọn) : chỉ định tiêu đề của Marker. Tiêu đề sẽ được hiển thị ở dòng đầu tiên của bảng thông tin Marker.
 - **snippet** (tùy chọn) : mô tả thông tin ngắn gọn cho Marker. Snippet sẽ được hiển thị ở bẳng thông tin của Marker và
