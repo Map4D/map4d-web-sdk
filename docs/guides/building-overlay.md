@@ -9,20 +9,28 @@ Building overlay chỉ hiển thị ở chế độ 3D.
 
 Hàm khởi tạo của lớp [BuildingOverlay](reference/building-overlay?id=buildingoverlay-class) nhận vào một đối tượng [BuildingOverlayOptions](reference/building-overlay?id=buildingoverlayoptions-interface) có các tham số như sau:
 
-| No | Property | Type | Requied | Description | Example |
-|:--:|----------|------|:-------:|-------------|---------|
-| 1 | getUrl | function | YES | Hàm nhận vào 3 giá trị `x`, `y`, `zoom` và trả về đường dẫn đến Buildings | `function(x, y, zoom) {`<br>` return "http://example.com/zoom/x/y/buildings"`<br>`}` |
-| 2 | prefixId | string | NO | Giá trị được thêm vào trước id của những building thuộc building overlay.<br>Dùng để tránh nhầm lẫn trong trường hợp trùng id với building của Map4D hay các building overlay khác | `"building_overlay_"` |
-| 3 | visible | boolean | NO | Nếu `true` thì building overlay sẽ được hiển thị | `true` |
+|  No | Property   | Type     | Requied | Description                                                                                                                                                                        |
+|:---:|------------|----------|:-------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1  | getUrl     | function |   YES   | Hàm nhận vào 3 giá trị `x`, `y`, `zoom` và trả về đường dẫn đến Buildings                                                                                                          |
+|  2  | parserData | function |   YES   | Hàm nhận vào response data từ api của `getUrl` và parser thành mảng các [BuildingData](/reference/building-overlay?id=buildingdata-interface)                                 |
+|  3  | prefixId   | string   |    NO   | Giá trị được thêm vào trước id của những building thuộc building overlay.<br>Dùng để tránh nhầm lẫn trong trường hợp trùng id với building của Map4D hay các building overlay khác |
+|  4  | visible    | boolean  |    NO   | Nếu `true` thì building overlay sẽ được hiển thị                                                                                                                                   |
 
 ### Tạo mới Building overlay
 
 ```js
 let options = {
   getUrl: function (x, y, zoom) {
-    return `https://example.com/${zoom}/${x}/${y}`
+    return `rest-api-get-building-from-tile-coordinate`
   },
-  prefixId: "building-1_"
+  parserData: function(response) {
+    let buildingDatas = []
+    /**
+     * parser data from response ...
+     */
+    return buildingDatas
+  },
+  prefixId: "prefix"
   visible: true
 }
 let overlay = new map4d.BuildingOverlay(options)
@@ -56,111 +64,3 @@ overlay.setVisible(false)
 ## Sự kiện đối với building thuộc building overlay
 
 Các sự kiện đối với building thuộc building overlay phát sinh tương tự với building của Map4D, việc xử lý được diễn ra ngay tại hàm xử lý sự kiện của Map4D. Xem [Events](/guides/map-events)
-
-## API Response cho hàm getUrl
-Để sử dụng được tính năng Building Overlay trên Map4D Map SDK, bạn cần 1 API nhận 3 thông số của một `Map Tile` là `x`, `y`, `zoom` và dữ liệu trả về kiểu `JSON` theo cấu trúc sau:
-
-```json
-{
-  "code": "ok",
-  "message": "message",
-  "result": {
-    "objects": [
-      {
-        "id": "string",
-        "name": "string",        
-        "location": {
-          "lng": 0,
-          "lat": 0
-        },
-        "scale": 0,
-        "bearing": 0,
-        "elevation": 0,
-        "camera": {
-          "zoom": 0,
-          "bearing": 0,
-          "tilt": 0
-        },
-        "types": [
-          "string"
-        ],
-        "minZoom": 0,
-        "maxZoom": 0,
-        "startDate": "1569801600000",
-        "endDate": "1569901600000",
-        "model": {
-          "id": "string",
-          "type": "Object", //or Polygon
-          "objName": "string",
-          "objUrl": "string",
-          "textureName": "string",
-          "textureUrl": "string",
-          "color": "string",
-          "height": 0,
-          "coordinates": [
-            {
-              "lng": 0,
-              "lat": 0
-            }
-          ]
-        }
-      }
-    ]
-  }
-}
-```
-
-> Gợi ý thiết kế database  
-> Cần 2 collection để lưu thông tin các tile map và thông tin đối tượng:  
-> ## Tile Collection
-> ```json
-> {
->   "id": "string",
->   "x": "number",
->   "y": "number",
->   "zoom": "number",
->   "objects": ["objectId"]
-> }
-> ```  
-> ## Object Collection  
-> ```json
->{
->        "id": "string",
->        "name": "string",        
->        "location": {
->          "lng": 0,
->          "lat": 0
->        },
->        "scale": 0,
->        "bearing": 0,
->        "elevation": 0,
->        "camera": {
->          "zoom": 0,
->          "bearing": 0,
->          "tilt": 0
->        },
->        "types": [
->          "string"
->        ],
->        "minZoom": 0,
->        "maxZoom": 0,
->        "startDate": "1569801600000",
->        "endDate": "1569901600000",
->        "model": {
->          "id": "string",
->          "type": "Object", //or Polygon
->          "objName": "string",
->          "objUrl": "string",
->          "textureName": "string",
->          "textureUrl": "string",
->          "color": "string",
->          "height": 0,
->          "coordinates": [
->            {
->              "lng": 0,
->              "lat": 0
->            }
->          ]
->        }
->}
-> ```  

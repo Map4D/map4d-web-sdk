@@ -22,6 +22,7 @@ POIOverlay(options)
 | **setMap**     | map: [Map](/reference/map?id=map-class) | `none`       | Hiển thị POI overlay lên map, nếu set map là null thì POI overlay sẽ bị xóa khỏi map |
 | **setVisible** | visibility: boolean                     | `none`       | Ẩn/hiện POI overlay trên map                                                         |
 | **isVisible**  | `none`                                  | boolean      | Get trạng thái ẩn/hiện của overlay                                                   |
+| **getPrefixId**| `none`                                  | string       | Get prefixId                                                                         |
 
 
 ## POIOverlayOptions interface
@@ -37,3 +38,21 @@ POIOverlay(options)
 | **getUrl** *required*   | function | Hàm nhận vào 3 giá trị `x`, `y`, `zoom` và trả về đường dẫn đến POIs |
 | **prefixId** *optional* | string   | Giá trị được thêm vào trước id của những POI thuộc overlay.          |
 | **visible** *optional*  | boolean  | Nếu là `true` thì POI overlay sẽ được hiển thị                       |
+
+
+## POIData interface
+
+`.map4d.POIData` interface
+
+Đối tượng POIData dùng để xác định các thuộc tính của POI
+
+| Name                      | Type                                         | Description                                                                       |
+|---------------------------|----------------------------------------------|-----------------------------------------------------------------------------------|
+| **id** *required*         | string                                       | ID của POI                                                                        |
+| **title** *required*      | string                                       | Tile của POI                                                                      |
+| **position** *required*   | [ILatLng](/reference/coordinates?id=ilatlng) | Vị trí hiển thị POI trên bản đồ                                                   |
+| **rank** *optional*       | number                                       | Độ ưu tiên hiển thị của POI đối với POI khác                                      |
+| **type** *optional*       | string                                       | Kiểu của POI *("bank", "atm", "park", ...)*, có thể dùng để xác định icon của POI |
+| **types** *optional*      | string[]                                     | Một POI có thể có nhiều kiểu khác nhau                                            |
+| **iconUrl** *optional*    | string                                       | Đường dẫn đến icon của POI, nếu `null` thì icon của POI sẽ dựa theo POI           |
+| **titleColor** *optional* | string                                       | Màu hiển thị của title                                                            |

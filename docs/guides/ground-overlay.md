@@ -11,13 +11,13 @@ Ground Overlay tương tự với Tile Overlay nhưng cho phép người dùng q
 
 Hàm khởi tạo của lớp [GroundOverlay](/reference/ground-overlay?id=groundoverlay-class) nhận vào 1 đối tượng [GroundOverlayOptions](/reference/ground-overlay?id=groundoverlayoptions-interface) như sau:
 
-| No | Property | Type | Requied | Default Value | Description | Example |
-|:-:|-|-|:-:|:-:|-|-|
-| 1 | bounds | [ILatLngBounds](/reference/coordinates?id=ilatlngbounds) | YES |  | Vùng hiển thị của ground overlay | `[`<br>`  {lng: 108.22125434875488, lat: 16.059547034047146},`<br>`  {lng: 108.23086738586424, lat: 16.075630202564316}`<br>`]` |
-| 2 | getUrl | function | YES |  | Hàm nhận vào 4 giá trị `x`, `y`, `zoom`, `is3dMode`và trả về đường dẫn đến map tile | `function(x, y, zoom, is3dMode) {`<br>`  return "https://tile.openstreetmap.de/" + zoom + "/" + x + "/" + y + ".png`<br>`}` |
-| 3 | override | boolean | NO | `false` | Nếu `true` thì sẽ không hiển thị Map4D tile và các đối tượng cảu Map4D trong khu vực của ground overlay |  |
-| 4 | visible | boolean | NO | `true` |  |  |
-| 5 | zIndex | number | NO | `0` |  |  |
+|  No | Property | Type                                                     | Requied | Default Value | Description                                                                                             |
+| :-: | -------- | -------------------------------------------------------- | :-----: | :-----------: | ------------------------------------------------------------------------------------------------------- |
+|  1  | bounds   | [ILatLngBounds](/reference/coordinates?id=ilatlngbounds) |   YES   |               | Vùng hiển thị của ground overlay                                                                        |
+|  2  | getUrl   | function                                                 |   YES   |               | Hàm nhận vào 4 giá trị `x`, `y`, `zoom`, `is3dMode`và trả về đường dẫn đến map tile                     |
+|  3  | override | boolean                                                  |    NO   |    `false`    | Nếu `true` thì sẽ không hiển thị Map4D tile và các đối tượng cảu Map4D trong khu vực của ground overlay |
+|  4  | visible  | boolean                                                  |    NO   |     `true`    |                                                                                                         |
+|  5  | zIndex   | number                                                   |    NO   |      `0`      |                                                                                                         |
 
 
 ### Tạo mới Ground overlay

@@ -38,10 +38,17 @@ Các loại thời tiết:
 | live   | Weather.Live   | Hiệu ứng thời tiết tự động cập nhật theo thời gian thực bằng hệ thống cảm biến đã có ở một số nơi |
 
 Để cài đặt hiệu ứng thời tiết trên bản đồ, ta gọi phương thức `setWeather` từ đối tượng `Map`  
-Phương thức `setWeather` nhận vào giá trị là tên thời tiết hoặc giá trị enum [Weather](/reference/map?id=weather-enum) *(TypeScript)*
+Phương thức `setWeather` nhận vào giá trị là tên thời tiết hoặc giá trị enum [Weather](/reference/map?id=weather-enum)
+
+```js
+map.setWeather(weather)
+```
+
+Example:
 
 ```js
 map.setWeather("rainy")
+map.setWeather(map4d.Weather.Snowy)
 ```
 
 ## Hiệu ứng thời gian trong ngày
@@ -62,10 +69,17 @@ Các loại hiệu ứng thời gian:
 
 
 Để cài đặt hiệu ứng thời gian trên bản đồ, ta gọi phương thức `setTimeEffect` từ đối tượng `Map`  
-Phương thức `setTimeEffect` nhận vào giá trị là tên hiệu ứng thời gian hoặc giá trị enum [TimeEffect](/reference/map?id=timeeffect-enum) *(TypeScript)*
+Phương thức `setTimeEffect` nhận vào giá trị là tên hiệu ứng thời gian hoặc giá trị enum [TimeEffect](/reference/map?id=timeeffect-enum)
 
 ```js
-map.setTimeEffect("evening")
+map.setTimeEffect(effect)
+```
+
+Example:
+
+```js
+map.setTimeEffect("morning")
+map.setTimeEffect(map4d.TimeEffect.Evening)
 ```
 
 Example:

@@ -10,11 +10,11 @@ Tile Overlay là một loại overlay cho phép người dùng hiển thị các
 
 Hàm khởi tạo của lớp [TileOverlay](reference/tile-overlay?id=tileoverlay-class) nhận vào một đối tượng [TileOverlayOptions](reference/tile-overlay?id=tileoverlayoptions-interface) có các tham số như sau:
 
-| No | Property | Type     | Requied | Description                                                                             | Example                                                                                                     |
-|:--:|----------|----------|:-------:|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-|  1 | getUrl   | function |   YES   | Hàm nhận vào 4 giá trị `x`, `y`, `zoom`, `is3dMode`<br>và trả về đường dẫn đến map tile | `function(x, y, zoom, is3dMode) {`<br>`  return https://tile.openstreetmap.de/${zoom}/${x}/${y}.png`<br>`}` |
-|  2 | visible  | boolean  |    NO   | Nếu là `true` thì tile overlay sẽ được hiển thị                                         | `true`                                                                                                      |
-|  3 | zIndex   | number   |    NO   | Thứ tự hiển thị                                                                         | `1`                                                                                                         |
+| No | Property | Type     | Requied | Description                                                                             |
+|:--:|----------|----------|:-------:|-----------------------------------------------------------------------------------------|
+|  1 | getUrl   | function |   YES   | Hàm nhận vào 4 giá trị `x`, `y`, `zoom`, `is3dMode`<br>và trả về đường dẫn đến map tile |
+|  2 | visible  | boolean  |    NO   | Nếu là `true` thì tile overlay sẽ được hiển thị                                         |
+|  3 | zIndex   | number   |    NO   | Thứ tự hiển thị                                                                         |
 
 ### Tạo mới Tile overlay
 
