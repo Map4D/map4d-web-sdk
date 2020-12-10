@@ -52,7 +52,7 @@ sẽ không có tác dụng.
 
 Ví dụ sau đây sẽ thêm một Polyline vào bản đồ:
 
-<iframe src="//jsfiddle.net/duydung2007/rmp5tykd/3/embedded/" style="min-width: 914px;" height="490px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/rmp5tykd/embedded/" style="min-width: 914px;" height="490px"></iframe>
 
 ### 2. Xóa Polyline khỏi bản đồ
 
@@ -70,7 +70,7 @@ sau đó bạn gán **polyline** bằng **null**.
 Bạn có thể cho người dùng kéo Polyline từ vị trí này đến vị trí khác trên bản đồ bằng cách chỉ định thuộc tính **draggable**
 bằng **true** ở trong **PolylineOptions** khi tạo **Polyline**
 
-<iframe src="//jsfiddle.net/duydung2007/b4zx6gws/2/embedded/" style="min-width: 914px;" height="490px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/b4zx6gws/embedded/" style="min-width: 914px;" height="490px"></iframe>
 
 Ngoài ra bạn có thể gọi phương thức **setDraggable()** của đối tượng **Polyline** và truyền vào tham số **true** để bật
 tính năng draggable của Polyline hoặc truyền vào tham số **false** để tắt tính năng draggable.

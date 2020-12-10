@@ -53,7 +53,7 @@ sẽ không có tác dụng.
 
 Ví dụ sau đây thêm một Marker đơn giản vào bản đồ tại Bình Thạnh, Thành phố Hồ Chí Minh:
 
-<iframe src="//jsfiddle.net/duydung2007/zxg1evLt/3/embedded/" style="min-width: 914px;" height="360px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/zxg1evLt/embedded/" style="min-width: 914px;" height="360px"></iframe>
 
 ### 2. Xóa Marker khỏi bản đồ
 
@@ -81,7 +81,7 @@ Các phần bên dưới mô tả Marker với iconView, Marker có bảng thôn
 Nếu bạn muốn thay đổi hình ảnh mặc định của Marker thành một node HTML thì bạn có thể gán thuộc tính **iconView** trong
 **MarkerOptions** thành một node HTML như ví dụ dưới đây.
 
-<iframe src="//jsfiddle.net/duydung2007/z68nu7o4/4/embedded/" style="min-width: 914px;" height="400px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/z68nu7o4/embedded/" style="min-width: 914px;" height="400px"></iframe>
 
 #### Marker có bảng thông tin
 
@@ -115,7 +115,7 @@ Là một marker có chữ hoặc số được vẽ ở trong Marker. Bạn có
 Khi tạo một marker bạn có thể chỉ định thuộc tính **label** trong đối tượng MarkerOptions. Ngoài ra bạn có thể gọi phương thức
 **setLabel()** của đối tượng **Marker** để thiết lập label trên đối tượng đó.
 
-<iframe src="//jsfiddle.net/duydung2007/zgn9te67/2/embedded/" style="min-width: 914px;" height="380px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/zgn9te67/embedded/" style="min-width: 914px;" height="380px"></iframe>
 
 Như đoạn mã tạo maker với label ở trên, ta có label là một đối tượng **map4d.MarkerLabel** với các thuộc tính text là
 **Text**, màu chữ là màu đen và kích thước là 12.
@@ -125,7 +125,7 @@ Như đoạn mã tạo maker với label ở trên, ta có label là một đố
 Để cho phép người dùng có thể kéo một Marker tới một vị trí khác trên bản đồ, chỉ định thuộc tính **draggable** thành **true** ở trong
 **MarkerOptions**
 
-<iframe src="//jsfiddle.net/duydung2007/0rdzmpnk/2/embedded/" style="min-width: 914px;" height="360px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/0rdzmpnk/embedded/" style="min-width: 914px;" height="360px"></iframe>
 
 Ngoài ra bạn có thể gọi phương thức **setDraggable()** của đối tượng **Marker** và truyền vào tham số **true** để bật
 tính năng draggable của marker hoặc truyền vào tham số **false** để tắt tính năng draggable.

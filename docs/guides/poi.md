@@ -50,7 +50,7 @@ sẽ không có tác dụng.
 
 Ví dụ sau đây thêm một POI vào bản đồ với kiểu là **cafe** và tiêu đề là **Demo POI cafe**
 
-<iframe src="//jsfiddle.net/duydung2007/eydj4op6/14/embedded/" style="min-width: 914px;" height="400px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/eydj4op6/embedded/" style="min-width: 914px;" height="400px"></iframe>
 
 ### 2. Xóa POI khỏi bản đồ
 

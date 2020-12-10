@@ -65,11 +65,11 @@ vừa được load lên bản đồ. Giá trị mặc định là **true**.
 
 Ví dụ sau đây thêm một Building là một cây cầu bằng Model và Texture vào bản đồ:
 
-<iframe src="//jsfiddle.net/duydung2007/eaku2dq8/8/embedded/" style="min-width: 960px;" height="440px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/eaku2dq8/embedded/" style="min-width: 960px;" height="440px"></iframe>
 
 Hoặc ta cũng có thể thêm một Building bằng một mảng **coordinates** như sau:
 
-<iframe src="//jsfiddle.net/duydung2007/szuq2nyc/9/embedded/" style="min-width: 960px;" height="540px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/szuq2nyc/embedded/" style="min-width: 960px;" height="540px"></iframe>
 
 ### 2. Xóa Building khỏi bản đồ
 
