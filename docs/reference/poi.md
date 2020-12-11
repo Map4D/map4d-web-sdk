@@ -23,8 +23,8 @@ POI(options)
 | **getMap**                   | `none`                                  | Map          | Lấy đối tượng map mà polygon được thêm vào                                             |
 | **setTitle**                 | string                                  | `none`       | Set tiêu đề cho POI                                                                    |
 | **getTitle**                 | `none`                                  | string       | Get tiêu đề của POI                                                                    |
-| **setPosition**              |[ILatLng](/reference/coordinates?id=ilatlng)[][]| `none`| Set vị trí tọa độ trên bản đồ cho POI                                                  |
-| **getPosition**              | `none` | [LatLng](/reference/coordinates?id=latlng)[][]| Get vị trí tọa độ của POI                                                              |
+| **setPosition**              |[ILatLng](/reference/coordinates?id=ilatlng)| `none`    | Set vị trí tọa độ trên bản đồ cho POI                                                  |
+| **getPosition**              | `none` | [LatLng](/reference/coordinates?id=latlng)    | Get vị trí tọa độ của POI                                                              |
 | **setTitleColor**            | string                                  | `none`       | Set màu cho tiêu đề của POI theo mã HEX (ví dụ: **"#0F4DA9"**)                         |
 | **getTitleColor**            | `none`                                  | string       | Get màu tiêu đề của POI                                                                |
 | **setSubtitle**              | string                                  | `none`       | Set thông tin mô tả cho POI                                                            |
