@@ -3,7 +3,7 @@
 
 - Interacting with the Map
   - [Map Options](guides/map-options.md)
-  - [Controls](guides/controls.md)
+  - [Controls](guides/map-controls.md)
   - [Events](guides/map-events.md)
   - [Effect](guides/map-effects.md)
 

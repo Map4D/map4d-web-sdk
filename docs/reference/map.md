@@ -4,6 +4,8 @@
 
 ## MapOptions interface
 
+## ControlOptions enum
+
 ## Weather enum
 
 ## TimeEffect enum
