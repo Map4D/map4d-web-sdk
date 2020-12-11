@@ -65,7 +65,7 @@ vừa được load lên bản đồ. Giá trị mặc định là **true**.
 
 Ví dụ sau đây thêm một Building là một cây cầu bằng Model và Texture vào bản đồ:
 
-<iframe src="//jsfiddle.net/duydung2007/eaku2dq8/embedded/" style="min-width: 960px;" height="440px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/eaku2dq8/embedded/" style="min-width: 960px;" height="470px"></iframe>
 
 Hoặc ta cũng có thể thêm một Building bằng một mảng **coordinates** như sau:
 
@@ -144,7 +144,34 @@ Ví dụ:
 let filterTypes = map.getFilterBuildings()
 ```
 
-### 5. Các sự kiện trên Building
+### 5. Lấy danh sách các tile chứa Building
+
+Trong một số trường hợp bạn muốn lấy danh sách các tile chứa building (hoặc là danh sách các tile mà building vẽ đè lên trên
+bản đồ) thì hãy dùng phương thức **getTileCovers(zooms: number[], completion: Function)**. Với 2 tham số như sau:
+- zooms: number[]: mảng các mức zoom ta cần lấy danh sách tile bị đè bởi building. Nếu bạn chỉ cần lấy danh sách tile của
+1 mức zoom thì có thể dùng mảng với 1 phần tử. <br>**Chú ý: mức zoom >= 17 (chế độ 3D thì mức zoom nhỏ nhất là 17)**
+- completion: là một hàm callback để nhận kết quả trả về với cấu trúc **(tiles) => { /* Your code */ }**, trong đó **tiles**
+là danh sách các tile bị đè bởi building.
+
+```javascript
+building.getTileCovers([18], (tiles) => {
+    console.log(tiles)
+})
+```
+
+### 6. Lấy danh sách các tọa độ bao quanh mặt chân đế của Building
+
+Building sẽ có các hình dáng khác nhau (hình cong, hình uốn lượn, ...) nên mặt chân đế của nó cũng sẽ là những đường cong,
+đường uốn lượn đó. Vậy để xác định mặt chân đế của một building ta cần lấy các điểm tọa độ bằng phương thức **getBoundsCoordinates(completion: Function)**
+với 1 tham số truyền vào là:
+- completion: là một hàm callback để nhận kết quả trả về với cấu trúc **(coordinates) => {/* Your code */}**. trong đó **coordinates**
+là danh sách các điểm tọa độ bao quanh mặt chân đế của building
+
+Ví dụ sau đây ta sẽ lấy các điểm tọa độ của mặt chân đế của một cây cầu và vẽ các Marker tại những điểm đó:
+
+<iframe src="//jsfiddle.net/duydung2007/6r9L1jhu/embedded/" style="min-width: 960px;" height="710px"></iframe>
+
+### 7. Các sự kiện trên Building
 
 Để lắng nghe các sự kiện xảy ra trên Building, bạn hãy dùng phương thức **addListener()** của lớp **Map** với tham số **EventOptions**
 là đối tượng **{building: true}** hoặc/và **{mapbuilding: true}**.

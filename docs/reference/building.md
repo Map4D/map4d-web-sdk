@@ -13,7 +13,7 @@ Building(options)
 ```
 
 - Parameters:
-  - options: [BuildingOptions](/reference/poi?id=poi-options) *required*
+  - options: [BuildingOptions](/reference/building?id=building-options) *required*
 
 **Methods**
 
