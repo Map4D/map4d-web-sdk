@@ -56,29 +56,4 @@ map = new map4d.Map(document.getElementById("map"), options)
 
 ### Map Options
 
-```js
-{
-  center: ILatLng,
-  zoom?: number,
-  minZoom?: number,
-  maxZoom?: number,
-  maxNativeZoom?: number,
-  geolocate?: boolean,
-  controls?: boolean,
-  controlOptions?: ControlOptions,
-  tilt?: number,
-  bearing?: number,
-  restrictionBounds?: ILatLngBounds,
-  shouldChangeMapMode?: Function
-}
-```
-
-- center: vị trí khởi tạo trung tâm của map
-- zoom, tilt, bearing: mức zoom, độ nghiêng và góc xoay khởi tạo cho map
-- minZoom, maxZoom: giới hạn zoom của map có nghĩa mức zoom của map chỉ được nằm trong khoảng [minZoom, maxZoom]. Nếu không set thì giá trị mặc định sẽ là [0, 22]
-- maxNativeZoom: là giới hạn mức Zoom cao nhất của Tile mà map request từ server. Nếu không set thì giá trị mặc định là 19
-- geolocate: bật/tắt chức năng lấy vị trí hiện tại của người dùng, mặc định là tắt
-- controls: ẩn hiện bảng điều khiển, mặc định là ẩn
-- controlOptions: vị trí của bảng điều khiển giá trị mặc định là BOTTOM_RIGHT
-- restrictionBounds: giới hạn vùng hiển thị, di chuyển của map
-- shouldChangeMapMode: function sẽ được gọi khi mức zoom chuyển từ mức hiển thị 2D sang mức có thể hiển thị 3D và ngược lại
+[MapOptions](/guides/map-options) là object cung cấp các thiết lập ban đầu để khởi tạo đối tượng Map4D

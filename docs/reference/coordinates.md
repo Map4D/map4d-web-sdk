@@ -40,6 +40,8 @@ LatLng(latitude, longitude)
 type ILatLng = LatLng | {lat: number, lng: number} | [number, number]
 ```
 
+- Trường hợp **ILatLng** là **array** thì giá trị ở vị trí `0` của mảng sẽ là ***longitude***, còn giá trị ở vị trí `1` sẽ là ***latitude***
+
 ## LatLngBounds
 
 `map4d.LatLngBounds` class
