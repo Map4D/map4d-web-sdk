@@ -41,7 +41,7 @@ từ 0.0 đến 1.0. Giá trị mặc định là **1**.
 - **draggable** (tùy chọn): cho phép người dùng có thể kéo Polygon trên bản đồ hay không. Giá trị mặc định là **false**.
 - **zIndex** (tùy chọn): chỉ định thứ tự chồng nhau giữa các Polygon với nhau hoặc giữa Polygon với các đối tượng khác
 trên bản đồ. Giá trị mặc định là **0**.
-- **elevation** (tùy chọn): chỉ định độ cao của Polygon so với mực nước biển. Giá trị mặc định là **0**.
+- **elevation** (tùy chọn): chỉ định độ cao của Polygon so với mực nước biển, đơn vị là mét. Giá trị mặc định là **0**.
 - **userInteractionEnabled** (tùy chọn): cho phép người dùng có thể tương tác được với Polygon hay không. Giá trị mặc định
 là **true**. Khi không cho phép người dùng tương tác với Polygon thì tất cả các sự kiện liên quan tới Polygon từ phía người dùng
 sẽ không có tác dụng.

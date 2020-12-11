@@ -44,7 +44,7 @@ Nếu bạn chỉ định thuộc tính này bằng **true** thì bạn sẽ đ�
 - **draggable** (tùy chọn): cho phép người dùng có thể kéo Polyline trên bản đồ hay không. Giá trị mặc định là **false**.
 - **zIndex** (tùy chọn): chỉ định thứ tự chồng nhau giữa các Polyline với nhau hoặc giữa Polyline với các đối tượng khác
 trên bản đồ. Giá trị mặc định là **0**.
-- **elevation** (tùy chọn): chỉ định độ cao của Polyline so với mực nước biển. Giá trị mặc định là **0**
+- **elevation** (tùy chọn): chỉ định độ cao của Polyline so với mực nước biển, đơn vị là mét. Giá trị mặc định là **0**
 - **style** (tùy chọn): chỉ định Polyline là loại nét liền (**"solid"**) hay nét đứt (**"dotted"**). Giá trị mặc định là **"solid"**
 - **userInteractionEnabled** (tùy chọn): cho phép người dùng có thể tương tác được với Polyline hay không. Giá trị mặc định
 là **true**. Khi không cho phép người dùng tương tác với Polyline thì tất cả các sự kiện liên quan tới Polyline từ phía người dùng
