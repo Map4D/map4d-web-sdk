@@ -15,7 +15,7 @@ tính ban đầu của Buidling.
 
 ```javascript
 interface BuildingOptions {
-    location?: ILatLng
+    position?: ILatLng
     name?: string
     scale?: number
     bearing?: number
@@ -33,7 +33,7 @@ interface BuildingOptions {
 ```
 
 Các thuộc tính của **BuildingOptions** :
-- **location** (bắt buộc): chỉ định một **ILatLng** để xác định vị trí của Building.
+- **position** (bắt buộc): chỉ định một **ILatLng** để xác định vị trí của Building.
 - **name** (tùy chọn): chỉ định tên của Building mà bạn tạo. Tên mặc định sẽ là **Unknown name**
 - **scale** (tùy chọn): chỉ định tỉ lệ của Building được vẽ ra ở trên bản đồ so với tỉ lệ thật của nó. Ví dụ khi giá trị **scale**
 là 0.5 thì Building sẽ nhỏ hơn một nửa so với kích thước thật của nó. Giá trị mặc định là **1**.
