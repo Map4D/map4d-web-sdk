@@ -5,8 +5,7 @@ Building overlay chỉ hiển thị ở chế độ 3D.
 
 ## Add Building overlay
 
-Để thêm 1 building overlay vào map cần tạo mới 1 đối tượng của lớp [BuildingOverlay](reference/building-overlay?id=buildingverlay-class) sau đó set `map` cho building overlay đó.
-
+Để thêm 1 building overlay vào map cần tạo mới 1 đối tượng của lớp [BuildingOverlay](reference/building-overlay?id=buildingverlay-class) sau đó set `map` cho building overlay đó.  
 Hàm khởi tạo của lớp [BuildingOverlay](reference/building-overlay?id=buildingoverlay-class) nhận vào một đối tượng [BuildingOverlayOptions](reference/building-overlay?id=buildingoverlayoptions-interface) có các tham số như sau:
 
 |  No | Property   | Type     | Requied | Description                                                                                                                                                                        |

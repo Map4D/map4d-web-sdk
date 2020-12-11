@@ -11,9 +11,9 @@ Hàm khởi tạo của lớp [POIOverlay](reference/poi-overlay?id=poioverlay-c
 | No | Property   | Type     | Requied | Description                                                                                                                                                    |
 |:--:|------------|----------|:-------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  1 | getUrl     | function |   YES   | Hàm nhận vào 3 giá trị `x`, `y`, `zoom` và trả về đường dẫn đến POIs                                                                                           |
-|  1 | parserData | function |   YES   | Hàm nhận vào response data từ api của `getUrl` và parser thành mảng các [POIData](/reference/poi-overlay?id=poidata-interface)                                 |
-|  2 | prefixId   | string   |    NO   | Giá trị được thêm vào trước id của những POI thuộc POI overlay.<br>Dùng để tránh nhầm lẫn trong trường hợp trùng id với POI của Map4D hay các POI overlay khác |
-|  3 | visible    | boolean  |    NO   | Nếu `true` thì POI overlay sẽ được hiển thị                                                                                                                    |
+|  2 | parserData | function |   YES   | Hàm nhận vào response data từ api của `getUrl` và parser thành mảng các [POIData](/reference/poi-overlay?id=poidata-interface)                                 |
+|  3 | prefixId   | string   |    NO   | Giá trị được thêm vào trước id của những POI thuộc POI overlay.<br>Dùng để tránh nhầm lẫn trong trường hợp trùng id với POI của Map4D hay các POI overlay khác |
+|  4 | visible    | boolean  |    NO   | Nếu `true` thì POI overlay sẽ được hiển thị                                                                                                                    |
 
 
 ### Tạo mới POI overlay

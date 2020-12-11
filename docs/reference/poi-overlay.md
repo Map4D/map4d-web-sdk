@@ -46,13 +46,13 @@ POIOverlay(options)
 
 Đối tượng POIData dùng để xác định các thuộc tính của POI
 
-| Name                      | Type                                         | Description                                                                       |
-|---------------------------|----------------------------------------------|-----------------------------------------------------------------------------------|
-| **id** *required*         | string                                       | ID của POI                                                                        |
-| **title** *required*      | string                                       | Tile của POI                                                                      |
-| **position** *required*   | [ILatLng](/reference/coordinates?id=ilatlng) | Vị trí hiển thị POI trên bản đồ                                                   |
-| **rank** *optional*       | number                                       | Độ ưu tiên hiển thị của POI đối với POI khác                                      |
-| **type** *optional*       | string                                       | Kiểu của POI *("bank", "atm", "park", ...)*, có thể dùng để xác định icon của POI |
-| **types** *optional*      | string[]                                     | Một POI có thể có nhiều kiểu khác nhau                                            |
-| **iconUrl** *optional*    | string                                       | Đường dẫn đến icon của POI, nếu `null` thì icon của POI sẽ dựa theo POI           |
-| **titleColor** *optional* | string                                       | Màu hiển thị của title                                                            |
+| Name                      | Type                                         | Description                                                                                                                                   |
+|---------------------------|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| **id** *required*         | string                                       | ID của POI                                                                                                                                    |
+| **position** *required*   | [ILatLng](/reference/coordinates?id=ilatlng) | Vị trí hiển thị POI trên bản đồ                                                                                                               |
+| **title** *required*      | string                                       | Tiêu đề của POI                                                                                                                               |
+| **titleColor** *optional* | string                                       | Màu hiển thị của tiêu đề                                                                                                                      |
+| **type** *optional*       | string                                       | Kiểu của POI *("bank", "atm", "park", ...)*, tùy thuộc vào kiểu mà POI có icon tương ứng                                                      |
+| **icon** *optional*       | string                                       | Đường dẫn để lấy icon cho POI. Nếu option này được set giá trị thì hình ảnh của POI sẽ lấy theo URL này mà không cần quan tâm tới option type |
+| **zIndex** *optional*     | number                                       | Độ ưu tiên hiển thị của POI đối với POI khác                                                                                                  |
+

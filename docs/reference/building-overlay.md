@@ -47,21 +47,21 @@ BuildingOverlay(options)
 
 **Properties**
 
-| Name                       | Type                                           | Description                                                                                                                                            |
-|----------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **id** *required*          | string                                         | Building ID                                                                                                                                            |
-| **name** *required*        | string                                         | Tên Building                                                                                                                                           |
-| **position** *required*    | [ILatLng](/reference/coordinates?id=ilatlng)   | Vị trí hiển thị building trên bản đồ                                                                                                                   |
-| **modelType** *optional*   | string                                         | Kiểu model của building (`Object` hoặc `Polygon`),<br>Nếu là `Object` thì model lấy từ `modelUrl`, `Polygon` thì model được dựng dựa vào `coordinates` |
-| **modelName** *optional*   | string                                         | Tên model của building                                                                                                                                 |
-| **modelUrl** *optional*    | string                                         | Đường dẫn URL để lấy dữ liệu model cho Building                                                                                                        |
-| **textureName** *optional* | string                                         | Tên texture của building                                                                                                                               |
-| **textureUrl** *optional*  | string                                         | Đường dẫn URL để lấy dữ liệu texture cho Building                                                                                                      |
-| **coordinates** *optional* | [ILatLng[]](/reference/coordinates?id=ilatlng) | Vị trí những tọa độ của building dạng polygon                                                                                                          |
-| **height** *optional*      | number                                         | Chiều cao của building (đơn vị: mét)                                                                                                                   |
-| **scale** *optional*       | number                                         | Tỉ lệ hiển thị của building so với kích thước thực tế                                                                                                  |
-| **bearing** *optional*     | number                                         | Góc quay của building khi được vẽ ra trên bản đồ (đơn vị: độ)                                                                                          |
-| **elevation** *optional*   | number                                         | Độ cao của building so với mực nước biển (đơn vị: mét)                                                                                                 |
-| **types** *optional*       | string[]                                       | Những kiểu của building                                                                                                                                |
-| **startDate** *optional*   | number                                         | Ngày bắt đầu hiển thị building                                                                                                                         |
-| **endDate** *optional*     | number                                         | Ngày kết thúc hiển thị building                                                                                                                        |
+| Name                       | Type                                           | Description                                                                                                                                  |
+|----------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **id** *required*          | string                                         | ID của building                                                                                                                              |
+| **name** *required*        | string                                         | Tên tuilding                                                                                                                                 |
+| **position** *required*    | [ILatLng](/reference/coordinates?id=ilatlng)   | Vị trí hiển thị building trên bản đồ                                                                                                         |
+| **model** *optional*       | string                                         | Đường dẫn URL để lấy dữ liệu model cho building                                                                                              |
+| **texture** *optional*     | string                                         | Đường dẫn URL để lấy dữ liệu texture cho building                                                                                            |
+| **coordinates** *optional* | [ILatLng[]](/reference/coordinates?id=ilatlng) | Một mảng vị trí `ILatLng` để tạo một Building hình khối với mặt đáy của hình khối là mảng vị trí này. Kết hợp với `height` để tạo chiều cao  |
+| **height** *optional*      | number                                         | Chiều cao của building (đơn vị: mét)                                                                                                         |
+| **scale** *optional*       | number                                         | Tỉ lệ hiển thị của building so với kích thước thực tế                                                                                        |
+| **bearing** *optional*     | number                                         | Góc quay của building khi được vẽ ra trên bản đồ (đơn vị: độ)                                                                                |
+| **elevation** *optional*   | number                                         | Độ cao của building so với mực nước biển (đơn vị: mét)                                                                                       |
+| **startDate** *optional*   | number                                         | Ngày bắt đầu hiển thị building                                                                                                               |
+| **endDate** *optional*     | number                                         | Ngày kết thúc hiển thị building                                                                                                              |
+
+**Chú ý:**
+  - Trường hợp dùng `model` nhưng `texture` là *`null`* thì building sẽ được tô màu trắng.
+  - Trường hợp dùng `model` thì sẽ không dùng đến thuộc tính `coordinates`. Nếu set giá trị cho `coordinates` và cả `model` đồng thời thì sẽ ưu tiên lấy giá trị của `model` để tạo Building
