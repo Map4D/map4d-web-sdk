@@ -39,7 +39,7 @@ university, school, airport, bank, clothes, motel, insurance, furniture, atm, ho
 townhall, apartment, park, stadium, nightclub**. Kiểu mặc định sẽ là **point**.
 - **icon** (tùy chọn): chỉ định một đường dẫn URL để lấy hình ảnh cho POI. Nếu option này được set giá trị thì hình ảnh của
 POI sẽ lấy theo URL này mà không cần quan tâm tới option **type**. Giá trị mặc định là **null**
-- **elevation** (tùy chọn): chỉ định độ cao của POI so với mực nước biển. Giá trị mặc định là **0**
+- **elevation** (tùy chọn): chỉ định độ cao của POI so với mực nước biển, đơn vị là mét. Giá trị mặc định là **0**.
 - **zIndex** (tùy chọn): chỉ định thứ tự chồng nhau giữa các POI với nhau, nó không dùng để xác định thứ tự chồng nhau
 so với các đối tượng khác. Giá trị mặc định là **0**.
 - **visible** (tùy chọn): xác định POI có thể ẩn hay hiện trên bản đồ. Giá trị mặc định là **true**.
