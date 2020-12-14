@@ -1,4 +1,5 @@
 - [Overview](/)
+- [Changelog](changelog.md)
 - [Using Typescript](guides/using-typescript.md)
 
 - Interacting with the Map
@@ -41,5 +42,3 @@
     - [POI Overlay](reference/poi-overlay.md)
     - [Building Overlay](reference/building-overlay.md)
     - [Data Layer](reference/data-layer.md)
-
-- [Changelog](changelog.md)
