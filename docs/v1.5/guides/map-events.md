@@ -33,7 +33,7 @@ Trong đó:
 - **func**: hàm sẽ được gọi với tham số ***args*** khi sự kiện được chỉ định xảy ra
 - **options**: tùy chọn, dùng để xác định việc xử lý sự kiện chỉ hoạt động đối với các đối tượng được chỉ định (poi, building, marker, ...). Tham khảo [EventOptions](reference/map.md)
 
-Phương thức này trả về một đối tượng [MapsEventListener](reference/map.md)
+Phương thức này trả về một đối tượng [MapsEventListener](/reference/map?id=mapseventlistener-interface)
 
 ### Cách đăng ký event chung
 
