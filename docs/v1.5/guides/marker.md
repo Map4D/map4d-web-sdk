@@ -88,7 +88,7 @@ Nếu bạn muốn thay đổi hình ảnh mặc định của Marker thành m�
 Bạn có thể tạo marker chứa bảng thông tin bằng cách chỉ định giá trị cho **title** và **snippet** trong **MarkerOptions**
 khi tạo một marker.
 
-<iframe src="//jsfiddle.net/duydung2007/zdstvq8o/2/embedded/" style="min-width: 914px;" height="370px"></iframe>
+<iframe src="//jsfiddle.net/duydung2007/zdstvq8o/embedded/" style="min-width: 914px;" height="370px"></iframe>
 
 Bảng thông tin sẽ được hiển thị **khi người dùng click lên marker** như hình bên dưới:
 
