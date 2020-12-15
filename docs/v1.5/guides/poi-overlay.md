@@ -67,6 +67,6 @@ Khi người dùng click POI thuộc POI overlay thì sẽ phát sinh sự kiệ
 
 ## Example
 
-Ví dụ dưới đây ẩn tất cả POI của Map4D và hiển thị POI overlay với các poi được lấy từ `poi-random.herokuapp.com/poi/{zoom}/{x}/{y}`
+Ví dụ dưới đây ẩn tất cả POI của Map4D và hiển thị POI overlay với các poi được lấy từ `https://poi-random.herokuapp.com/`
 
 <iframe width="100%" height="800" src="//jsfiddle.net/huydang/w1qhzonk/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>

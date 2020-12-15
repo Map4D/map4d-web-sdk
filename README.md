@@ -36,7 +36,7 @@ Map4D SDK for Web, written in Javascript.
 
 ## Document references
 
-http://docs.map4d.vn/map4d-web-sdk
+https://docs.map4d.vn/map4d-web-sdk
 
 License
 -------
