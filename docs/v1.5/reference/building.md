@@ -37,6 +37,7 @@ Building(options)
 | **isSelected**               | `none`                                  | boolean      | Kiểm tra building có được hightlight hay không                                         |
 | **setModel**                 | string                                  | `none`       | Set đường dẫn URL để lấy dữ liệu model cho Building                                    |
 | **setTexture**               | string                                  | `none`       | Set đường dẫn URL để lấy dữ liệu texture cho Building                                  |
+| **getCoordinates**           | `none` | [LatLng](/reference/coordinates?id=latlng)    | Get mảng vị trí mặt đáy **LatLng** đã truyền vào để tạo Building extrude               |
 | **setCoordinates**           | string                                  | `none`       | Set mảng vị trí **ILatLng** để tạo một Building hình khối với mặt đáy của hình khối là mảng vị trí này|
 | **setVisible**               | boolean                                 | `none`       | Ẩn/hiện building trên map hay không                                                    |
 | **isVisible**                | `none`                                  | boolean      | Get trạng thái ẩn/hiện của building                                                    |
