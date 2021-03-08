@@ -1,5 +1,15 @@
 # Changelog
 
+### Version 1.5.1
+
+Những thay đổi kẻ từ version 1.5.0
+- Map
+  - Thay đổi logo Map4D theo quy chuẩn mới
+  - Bổ sung phương thức `setVisibleBuildings` và `setHiddenBuildings`
+  - Loại bỏ phương thức `setHiddenBuilding` và `setUnhiddenBuilding`
+  - Sửa lỗi click marker trong data layer không chính xác
+  - Sửa lỗi set giá trị position của Building khi building chưa được thêm vào Map
+
 ### Version 1.5.0
 
 Những thay đổi kẻ từ version 1.4
