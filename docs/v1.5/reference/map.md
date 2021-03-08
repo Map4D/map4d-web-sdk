@@ -59,8 +59,8 @@ Map(container, options)
 | **setWaterEffect**          | boolean                                 | `none`       | Bật/Tắt hiệu ứng nước trong chế độ 3D                                              |
 | **setSelectedBuildings**     | string[]                                 | `none`       | Set high light cho các building có ID nằm trong danh sách tham số truyền vào trong chế độ 3D                                             |
 | **getSelectedBuildings**     | `none`                                 | string[]       | Get danh sách ID các building được high light trên Map ở chế độ 3D                                             |
-| **setHiddenBuilding**        | string                                 | `none`       | Set building có id truyền vào ẩn khỏi Map                                              |
-| **setUnhiddenBuilding**       | string                                 | `none`       | Set building có id truyền vào hiện lại trên Map                                              |
+| **setHiddenBuildings**        | string[]                               | `none`       | Ẩn những building id truyền vào khỏi Map                                              |
+| **setVisibleBuildings**       | string[]                               | `none`       | Chỉ hiển thị những building id truyền vào trên Map                                              |
 | **setZoomGesturesEnabled**   | boolean                                 | `none`       | Bật/Tắt chức năng người dùng có thể Zoom Map                                            |
 | **setScrollGesturesEnabled**  | boolean                                 | `none`       | Bật/Tắt thao tác người dùng có thể di chuyển Map                                              |
 | **setRotateGesturesEnabled**   | boolean                                 | `none`       | Bật/Tắt thao tác người dùng có thể xoay Map                                              |
